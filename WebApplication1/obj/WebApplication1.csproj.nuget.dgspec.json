@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\c#\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\c#\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\c#\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\c#\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\twitter\\.nuget\\packages\\",
-        "outputPath": "D:\\c#\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\twitter\\AppData\\Roaming\\NuGet\\NuGet.Config",
