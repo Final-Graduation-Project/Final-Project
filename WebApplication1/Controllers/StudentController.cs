@@ -22,8 +22,8 @@ public class StudentController : Controller
     [HttpPost("AddStudent")]
     public async Task<IActionResult> AddStudent(Model.RigModl m)
     {
-        /*if(_studentService.GetStudent(m.Id) != null)
-            return BadRequest("Student Already Exist");*/
+        if(await _studentService.GetStudent(m.Id) != null)
+            return BadRequest("Student Already Exist");
         if (m.password != m.confpassword)
             return BadRequest("Password Not Matched");
         
