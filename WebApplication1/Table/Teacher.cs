@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication1.Table;
 
@@ -35,6 +36,7 @@ public class Teacher
     }
 
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int TeacherID
     {
         get { return _teacherID; }

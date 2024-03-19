@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Model;
+using WebApplication1.Models;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1.Table;
@@ -20,13 +20,14 @@ public class StudentController : Controller
     }
    
     [HttpPost("AddStudent")]
-    public async Task<IActionResult> AddStudent(Model.RigModl m)
+    
+    public async Task<IActionResult> AddStudent(RigEntity m)
     {
         if(await _studentService.GetStudent(m.Id) != null)
             return BadRequest("Student Already Exist");
         if (m.password != m.confpassword)
             return BadRequest("Password Not Matched");
-        
+
         var res =await _studentService.AddStudent(m);
         return Ok(res);
     }
@@ -37,7 +38,7 @@ public class StudentController : Controller
         return Ok(res);
     }
     [HttpPost("login")]
-    public async Task<IActionResult> login(Model.LoginModel u)
+    public async Task<IActionResult> login(LoginEntity u)
     {
         if (Math.Abs(u.Id) == 7)
         {

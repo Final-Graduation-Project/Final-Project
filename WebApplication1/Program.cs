@@ -1,17 +1,24 @@
-using System;
-using System.Text;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using WebApplication1.Models;
 using Microsoft.IdentityModel.Tokens;
-using WebApplication1;
+using System.Text;
+using System;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
+using WebApplication1;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(c =>
-    c.UseSqlServer(connStr));
+builder.Services.AddDbContext<AppDbContext>(c => c.UseSqlServer(connStr));
+
 builder.Services.AddControllers();
 
 // Add JWT authentication
@@ -24,9 +31,9 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
         ValidateIssuer = false,
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-            builder.Configuration.GetSection("AppSettings:Token").Value!))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value!))
     };
+
 });
 
 // Add Swagger/OpenAPI

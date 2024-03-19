@@ -22,7 +22,7 @@ namespace WebApplication1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("WebApplication1.Table.Event", b =>
+            modelBuilder.Entity("WebApplication1.Table.EventEntity", b =>
                 {
                     b.Property<int>("ActivityID")
                         .ValueGeneratedOnAdd()
@@ -120,10 +120,7 @@ namespace WebApplication1.Migrations
             modelBuilder.Entity("WebApplication1.Table.Student", b =>
                 {
                     b.Property<int>("StudentID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentID"));
 
                     b.Property<string>("ConfirmPassword")
                         .IsRequired()
@@ -156,10 +153,7 @@ namespace WebApplication1.Migrations
             modelBuilder.Entity("WebApplication1.Table.Teacher", b =>
                 {
                     b.Property<int>("TeacherID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeacherID"));
 
                     b.Property<string>("ConfirmPassword")
                         .IsRequired()
@@ -185,7 +179,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Teachers");
                 });
 
-            modelBuilder.Entity("WebApplication1.Table.Event", b =>
+            modelBuilder.Entity("WebApplication1.Table.EventEntity", b =>
                 {
                     b.HasOne("WebApplication1.Table.Student", "Student")
                         .WithMany("Events")

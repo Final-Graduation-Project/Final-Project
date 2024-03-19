@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication1.Table;
 
@@ -12,7 +13,7 @@ public class Student
         private string universityMajor;
         private int phone;
     
-        public ICollection<Event>? Events { get; set; }
+        public ICollection<EventEntity>? Events { get; set; }
     
         public Student(string studentName, int studentID, string email, string password, string confirmPassword, string universityMajor, int phone)
         {
@@ -32,8 +33,9 @@ public class Student
             set { studentName = value; } 
         }
     
-        [Key] 
-        public int StudentID 
+        [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public int StudentID 
         { 
             get { return studentID; } 
             set { studentID = value; } 

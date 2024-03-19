@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models;
+using WebApplication1.Resorces;
 using WebApplication1.Service.StaffMembers;
 
 namespace WebApplication1.Controllers;
@@ -12,13 +14,23 @@ public class StaffMember : Controller
         _staffMemberService = staffMemberService;
     }
     [HttpPost("AddStaffMember")]
-    public async Task<IActionResult> AddStaffMember(Model.RigModl m)
+    public async Task<IActionResult> AddStaffMember(RigEntity m)
     {
         if (m.password != m.confpassword)
             return BadRequest("Password Not Matched");
         
         var res =await _staffMemberService.AddStaffMember(m);
-        return Ok(res);
+
+        var resorce = new StaffMemberResource
+        {
+            ID=res.TeacherID,
+            name = res.Teachername,
+            email=res.Email
+        };
+
+        return Ok(resorce);
     }
+
+
    
 }

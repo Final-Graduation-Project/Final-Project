@@ -11,11 +11,13 @@ public class AppDbContext : DbContext
 
     public DbSet<Student> Students { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
-    public DbSet<Event> Events { get; set; }
+    public DbSet<EventEntity> Events { get; set; }
     // Corrected spelling of Proposal here
     public DbSet<Probosal> Proposals { get; set; }
     public DbSet<OfficeHour> OfficeHours { get; set; }
 
-    
-    
+   
+
+
+
 }

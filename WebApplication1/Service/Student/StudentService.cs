@@ -1,13 +1,24 @@
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Model;
+using WebApplication1.Models;
 using WebApplication1.Table;
 
 namespace WebApplication1.Service.Student;
 
+public interface IStudentService
+{
+    Task<Table.Student> AddStudent(RigEntity m);
+    Task<Table.Student> GetStudent(int id);
+    void setsessionvalue(Table.Student student);
+    public int? GetCurrentLoggedIn();
+    public void logout();
+}
 public class StudentService : IStudentService
 {
+
     private readonly AppDbContext _context;
     private readonly IHttpContextAccessor _httpContextAccessor;
+
+   
     public StudentService(AppDbContext context, IHttpContextAccessor httpContextAccessor)
     {
         _context = context;
@@ -16,7 +27,7 @@ public class StudentService : IStudentService
    
     
     
-    public async Task<Table.Student> AddStudent(Model.RigModl m)
+    public async Task<Table.Student> AddStudent(RigEntity m)
     {
         var password = BCrypt.Net.BCrypt.HashPassword(m.password);
        var student = new Table.Student(m.name, m.Id, m.email, password, m.confpassword, m.universityMajor, m.phone);
@@ -28,8 +39,7 @@ public class StudentService : IStudentService
     public async Task<Table.Student> GetStudent(int id)
     {
         var student = await _context.Students.FindAsync(id);
-        if(_context.Students.FindAsync(id)==null)
-            return null;
+        
         return student;
     }
     public void setsessionvalue(Table.Student student)
