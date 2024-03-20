@@ -235,3 +235,6 @@ C:\Users\EasyLife\source\repos\Final-Project\WebApplication1\obj\Debug\net7.0\re
 C:\Users\EasyLife\Source\Repos\Final-Project\WebApplication1\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\EasyLife\Source\Repos\Final-Project\WebApplication1\bin\Debug\net7.0\Scrutor.dll
 C:\Users\EasyLife\Source\Repos\Final-Project\WebApplication1\bin\Debug\net7.0\Ninject.dll
+C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Ninject.dll
+C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Scrutor.dll
