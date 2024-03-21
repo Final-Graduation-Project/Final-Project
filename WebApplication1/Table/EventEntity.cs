@@ -21,15 +21,16 @@ public class EventEntity
     
     public Student? Student { get; set; }
 
-    public EventEntity(int activityID, string activityName, string locationOfActivity, DateTime activityExecutionTime, DateTime dateImplementationActivity, string? activityDescription, int numberParticipateActivity, int studentID)
+    public EventEntity(int activityID, string activityName, string locationOfActivity, DateTime activityExecutionTime, DateTime dateImplementationActivity, string entityResponsibleActivity, string activityDescription, int numberParticipateActivity, int studentID)
     {
         ActivityID = activityID;
         ActivityName = activityName;
-            LocationOfActivity = locationOfActivity;
+        LocationOfActivity = locationOfActivity;
         ActivityExecutionTime = activityExecutionTime;
         DateImplementationActivity = dateImplementationActivity;
+        EntityResponsibleActivity = entityResponsibleActivity;
         ActivityDescription = activityDescription;
         NumberParticipateActivity = numberParticipateActivity;
-        StudentID= studentID;
+        StudentID = studentID;
     }
 }

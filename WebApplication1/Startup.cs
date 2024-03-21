@@ -6,6 +6,7 @@ using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplication1.Services.Event;
 
 
 namespace WebApplication1
@@ -19,18 +20,17 @@ namespace WebApplication1
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add DbContext
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // Add services
             services.AddTransient<IStudentService, StudentService>();
             services.AddTransient<IStaffMemberService, StaffMemberService>();
+            services.AddTransient<IEventServer, EventServer>();
+            services.AddScoped<IEventServer, EventServer>();
 
-            // Add email sender and configure its settings
+
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, EmailSender>(); // Transient lifetime
 
@@ -41,7 +41,6 @@ namespace WebApplication1
 
 
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

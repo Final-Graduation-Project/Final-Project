@@ -12,6 +12,7 @@ using System;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1;
+using WebApplication1.Services.Event;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,8 @@ builder.Services.AddSwaggerGen();
 // Add scoped services
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IStaffMemberService, StaffMemberService>();
+builder.Services.AddScoped<IEventServer, EventServer>();
+
 
 // Add distributed memory cache for session
 builder.Services.AddDistributedMemoryCache();

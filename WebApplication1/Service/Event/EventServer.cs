@@ -34,7 +34,7 @@ namespace WebApplication1.Services.Event;
     }
     public async Task<Table.EventEntity> AddEvent(EventAddEntitycs m)
     {
-        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity, m.ActivityDescription, m.NumberParticipateActivity, m.StudentID);
+        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity,m.EntityResponsibleActivity, m.ActivityDescription, m.NumberParticipateActivity, m.StudentID);
         _context.Events.Add(Event);
         await _context.SaveChangesAsync();
         return Event;

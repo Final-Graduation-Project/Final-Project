@@ -5050,11 +5050,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EasyLife\\Source\\Repos\\Final-Project\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\EasyLife\\Source\\Repos\\Final-Project\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\EasyLife\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EasyLife\\Source\\Repos\\Final-Project\\WebApplication1\\obj\\",
+      "outputPath": "D:\\project_node_js\\Final-Project\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EasyLife\\AppData\\Roaming\\NuGet\\NuGet.Config",

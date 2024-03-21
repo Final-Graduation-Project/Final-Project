@@ -37,6 +37,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApplication1.Controllers.EventControllercs",
+    "Method": "AddEvent",
+    "RelativePath": "api/EventControllercs/AddEvent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "m",
+        "Type": "WebApplication1.Models.EventAddEntitycs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.EventControllercs",
+    "Method": "GitAllEvent",
+    "RelativePath": "api/EventControllercs/GitAllEvent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.EventControllercs",
+    "Method": "GitEvent",
+    "RelativePath": "api/EventControllercs/GitEvent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name_of_the_committee",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.StaffMember",
     "Method": "AddStaffMember",
     "RelativePath": "api/StaffMember/AddStaffMember",
