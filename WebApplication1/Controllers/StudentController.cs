@@ -40,7 +40,7 @@ public class StudentController : Controller
     [HttpPost("login")]
     public async Task<IActionResult> login(LoginEntity u)
     {
-        if (Math.Abs(u.Id) == 7)
+        if (u.Id.ToString().Length==7)
         {
             Student user = await _studentService.GetStudent(u.Id);
             if (user == null)
@@ -54,7 +54,7 @@ public class StudentController : Controller
             _studentService.setsessionvalue(user);
             return Ok("Login Success");
         }
-        else if (Math.Abs(u.Id) == 4)
+        else if (u.Id.ToString().Length==4)
         {
             Teacher user = await _staffMemberService.GetStaffMember(u.Id);
             if (user == null)

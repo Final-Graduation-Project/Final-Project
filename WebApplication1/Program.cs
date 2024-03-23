@@ -21,6 +21,15 @@ builder.Services.AddDbContext<AppDbContext>(c => c.UseSqlServer(connStr));
 
 builder.Services.AddControllers();
 
+builder.services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            });
+        });
 // Add JWT authentication
 builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
@@ -71,7 +80,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+ app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();
