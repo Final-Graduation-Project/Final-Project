@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Model;
 using WebApplication1.Models;
 
 namespace WebApplication1.Service.StaffMembers;
 
 public interface IStaffMemberService
 {
-    Task<Table.Teacher> AddStaffMember(RigEntity m);
+    Task<Table.Teacher> AddStaffMember(TeacherEntitycs m);
     Task<Table.Teacher> GetStaffMember(int id);
     void setsessionvalue(Table.Teacher teacher);
 }
@@ -20,7 +21,7 @@ public class StaffMemberService : IStaffMemberService
         _httpContextAccessor = httpContextAccessor;
     }
     
-    public async Task<Table.Teacher> AddStaffMember(RigEntity m)
+    public async Task<Table.Teacher> AddStaffMember(TeacherEntitycs m)
     {
         var password = BCrypt.Net.BCrypt.HashPassword(m.password);
         var staffMember = new Table.Teacher(m.name, m.Id, m.email, password, m.confpassword, m.phone);

@@ -30,7 +30,39 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "WebApplication1.Models.RigEntity",
+        "Type": "WebApplication1.Model.TeacherEntitycs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.concilMemberController",
+    "Method": "AddConcilmember",
+    "RelativePath": "api/concilMember/AddConcilmember",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "m",
+        "Type": "WebApplication1.Model.concilMemberEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.concilMemberController",
+    "Method": "UpdateConcilmember",
+    "RelativePath": "api/concilMember/UpdateConcilmember",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateConcil",
+        "Type": "WebApplication1.Model.concilMemberEntity",
         "IsRequired": true
       }
     ],
@@ -47,6 +79,22 @@
       {
         "Name": "m",
         "Type": "WebApplication1.Models.EventAddEntitycs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.EventControllercs",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/EventControllercs/DeleteEvent/{eventId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -79,6 +127,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApplication1.Controllers.EventControllercs",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/EventControllercs/UpdateEvent",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateEvent",
+        "Type": "WebApplication1.Models.EventAddEntitycs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.StaffMember",
     "Method": "AddStaffMember",
     "RelativePath": "api/StaffMember/AddStaffMember",
@@ -88,7 +152,7 @@
     "Parameters": [
       {
         "Name": "m",
-        "Type": "WebApplication1.Models.RigEntity",
+        "Type": "WebApplication1.Model.TeacherEntitycs",
         "IsRequired": true
       }
     ],
@@ -114,7 +178,7 @@
     "Parameters": [
       {
         "Name": "m",
-        "Type": "WebApplication1.Models.RigEntity",
+        "Type": "WebApplication1.Models.studentEntity",
         "IsRequired": true
       }
     ],

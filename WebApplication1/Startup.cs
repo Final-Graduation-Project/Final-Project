@@ -7,6 +7,7 @@ using WebApplication1.Service.Student;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication1.Services.Event;
+using WebApplication1.Service.concilMember;
 
 
 namespace WebApplication1
@@ -28,6 +29,7 @@ namespace WebApplication1
             services.AddTransient<IStudentService, StudentService>();
             services.AddTransient<IStaffMemberService, StaffMemberService>();
             services.AddTransient<IEventServer, EventServer>();
+            services.AddTransient<IconcilMemberService, concilMemberService>();
             services.AddScoped<IEventServer, EventServer>();
 
 

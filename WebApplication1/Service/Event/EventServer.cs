@@ -17,7 +17,11 @@ namespace WebApplication1.Services.Event;
 
     Task<Table.EventEntity> GitEvent(string EntityResponsibleActivity);
 
-        void setsessionvalue(Table.EventEntity eventEntity);
+    Task<EventEntity> UpdateEvent(EventAddEntitycs m);
+    Task<bool> DeleteEvent(int eventId);
+
+
+    void setsessionvalue(Table.EventEntity eventEntity);
 
 
 
@@ -34,7 +38,8 @@ namespace WebApplication1.Services.Event;
     }
     public async Task<Table.EventEntity> AddEvent(EventAddEntitycs m)
     {
-        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity,m.EntityResponsibleActivity, m.ActivityDescription, m.NumberParticipateActivity, m.StudentID);
+        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity,m.EntityResponsibleActivity, m.ActivityDescription, m.NumberParticipateActivity,m.concilMemberID);
+        
         _context.Events.Add(Event);
         await _context.SaveChangesAsync();
         return Event;
@@ -52,6 +57,37 @@ namespace WebApplication1.Services.Event;
         var Event =await _context.Events.FirstOrDefaultAsync(x => x.EntityResponsibleActivity == name_of_the_committee);
         return Event;
     }
+    public async Task<bool> DeleteEvent(int eventId)
+    {
+        var eventToDelete = await _context.Events.FindAsync(eventId);
+        if (eventToDelete == null)
+            return false; // Event not found
+
+        _context.Events.Remove(eventToDelete);
+        await _context.SaveChangesAsync();
+        return true; // Event deleted successfully
+    }
+    public async Task<EventEntity> UpdateEvent( EventAddEntitycs m)
+    {
+        var existingEvent = await _context.Events.FindAsync();
+        if (existingEvent == null)
+        {
+            return null;
+        }
+        existingEvent.ActivityName = m.ActivityName;
+        existingEvent.ActivityID = m.ActivityID;
+        existingEvent.LocationOfActivity = m.LocationOfActivity;
+        existingEvent.ActivityExecutionTime = m.ActivityExecutionTime;
+        existingEvent.DateImplementationActivity = m.DateImplementationActivity;
+        existingEvent.EntityResponsibleActivity = m.EntityResponsibleActivity;
+        existingEvent.ActivityDescription = m.ActivityDescription;
+        existingEvent.NumberParticipateActivity = m.NumberParticipateActivity;
+        existingEvent.ConcilMemberID = m.concilMemberID;
+
+        await _context.SaveChangesAsync();
+        return existingEvent;
+    }
+
 
     public void setsessionvalue(Table.EventEntity eventEntity)
     {
@@ -63,7 +99,7 @@ namespace WebApplication1.Services.Event;
         _httpContextAccessor.HttpContext.Session.SetString("EntityResponsibleActivity", eventEntity.EntityResponsibleActivity);
         _httpContextAccessor.HttpContext.Session.SetString("ActivityDescription", eventEntity.ActivityDescription);
         _httpContextAccessor.HttpContext.Session.SetInt32("NumberParticipateActivity", eventEntity.NumberParticipateActivity);
-        _httpContextAccessor.HttpContext.Session.SetInt32("StudentID", eventEntity.StudentID);
+        _httpContextAccessor.HttpContext.Session.SetInt32("StudentID", eventEntity.ConcilMemberID);
 
 
 

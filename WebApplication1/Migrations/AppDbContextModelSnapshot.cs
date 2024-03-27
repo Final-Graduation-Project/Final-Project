@@ -31,32 +31,36 @@ namespace WebApplication1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ActivityID"));
 
                     b.Property<string>("ActivityDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ActivityExecutionTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ActivityName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ConcilMemberID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateImplementationActivity")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EntityResponsibleActivity")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LocationOfActivity")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberParticipateActivity")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentID")
-                        .HasColumnType("int");
-
                     b.HasKey("ActivityID");
 
-                    b.HasIndex("StudentID");
+                    b.HasIndex("ConcilMemberID");
 
                     b.ToTable("Events");
                 });
@@ -179,15 +183,37 @@ namespace WebApplication1.Migrations
                     b.ToTable("Teachers");
                 });
 
+            modelBuilder.Entity("WebApplication1.Table.studentConcilMember", b =>
+                {
+                    b.Property<int>("ConcilMemberID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcilMemberName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EntityResponsibleActivity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ConcilMemberID");
+
+                    b.ToTable("studentConcilMembers");
+                });
+
             modelBuilder.Entity("WebApplication1.Table.EventEntity", b =>
                 {
-                    b.HasOne("WebApplication1.Table.Student", "Student")
+                    b.HasOne("WebApplication1.Table.studentConcilMember", "ConcilMember")
                         .WithMany("Events")
-                        .HasForeignKey("StudentID")
+                        .HasForeignKey("ConcilMemberID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Student");
+                    b.Navigation("ConcilMember");
                 });
 
             modelBuilder.Entity("WebApplication1.Table.OfficeHour", b =>
@@ -201,14 +227,14 @@ namespace WebApplication1.Migrations
                     b.Navigation("Teacher");
                 });
 
-            modelBuilder.Entity("WebApplication1.Table.Student", b =>
-                {
-                    b.Navigation("Events");
-                });
-
             modelBuilder.Entity("WebApplication1.Table.Teacher", b =>
                 {
                     b.Navigation("OfficeHours");
+                });
+
+            modelBuilder.Entity("WebApplication1.Table.studentConcilMember", b =>
+                {
+                    b.Navigation("Events");
                 });
 #pragma warning restore 612, 618
         }

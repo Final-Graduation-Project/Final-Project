@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Model;
 using WebApplication1.Models;
 using WebApplication1.Resorces;
 using WebApplication1.Service.StaffMembers;
@@ -14,7 +15,7 @@ public class StaffMember : Controller
         _staffMemberService = staffMemberService;
     }
     [HttpPost("AddStaffMember")]
-    public async Task<IActionResult> AddStaffMember(RigEntity m)
+    public async Task<IActionResult> AddStaffMember(TeacherEntitycs m)
     {
         if (m.password != m.confpassword)
             return BadRequest("Password Not Matched");

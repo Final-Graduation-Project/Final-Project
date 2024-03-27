@@ -1,12 +1,13 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 using WebApplication1.Table;
+
 
 namespace WebApplication1.Service.Student;
 
 public interface IStudentService
 {
-    Task<Table.Student> AddStudent(RigEntity m);
+    Task<Table.Student> AddStudent(studentEntity m);
     Task<Table.Student> GetStudent(int id);
     void setsessionvalue(Table.Student student);
     public int? GetCurrentLoggedIn();
@@ -27,11 +28,13 @@ public class StudentService : IStudentService
    
     
     
-    public async Task<Table.Student> AddStudent(RigEntity m)
+    public async Task<Table.Student> AddStudent(studentEntity m)
     {
         var password = BCrypt.Net.BCrypt.HashPassword(m.password);
        var student = new Table.Student(m.name, m.Id, m.email, password, m.confpassword, m.universityMajor, m.phone);
         _context.Students.Add(student);
+
+
         await _context.SaveChangesAsync();
 
         return student;

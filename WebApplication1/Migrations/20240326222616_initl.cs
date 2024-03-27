@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApplication1.Migrations
 {
     /// <inheritdoc />
-    public partial class inital : Migration
+    public partial class initl : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,20 @@ namespace WebApplication1.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Proposals", x => x.ProbosalID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "studentConcilMembers",
+                columns: table => new
+                {
+                    ConcilMemberID = table.Column<int>(type: "int", nullable: false),
+                    ConcilMemberName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_studentConcilMembers", x => x.ConcilMemberID);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,23 +78,23 @@ namespace WebApplication1.Migrations
                 {
                     ActivityID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ActivityName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LocationOfActivity = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ActivityName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LocationOfActivity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActivityExecutionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateImplementationActivity = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ActivityDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ActivityDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumberParticipateActivity = table.Column<int>(type: "int", nullable: false),
-                    StudentID = table.Column<int>(type: "int", nullable: false)
+                    ConcilMemberID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Events", x => x.ActivityID);
                     table.ForeignKey(
-                        name: "FK_Events_Students_StudentID",
-                        column: x => x.StudentID,
-                        principalTable: "Students",
-                        principalColumn: "StudentID",
+                        name: "FK_Events_studentConcilMembers_ConcilMemberID",
+                        column: x => x.ConcilMemberID,
+                        principalTable: "studentConcilMembers",
+                        principalColumn: "ConcilMemberID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -109,9 +123,9 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Events_StudentID",
+                name: "IX_Events_ConcilMemberID",
                 table: "Events",
-                column: "StudentID");
+                column: "ConcilMemberID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OfficeHours_TeacherId",
@@ -133,6 +147,9 @@ namespace WebApplication1.Migrations
 
             migrationBuilder.DropTable(
                 name: "Students");
+
+            migrationBuilder.DropTable(
+                name: "studentConcilMembers");
 
             migrationBuilder.DropTable(
                 name: "Teachers");

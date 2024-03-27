@@ -1,11 +1,10 @@
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Model
 {
-    public class RigEntity
+    public class TeacherEntitycs
     {
-        [Range(1000000, 9999999, ErrorMessage = "The Id must be a 7-digit number.")]
+        [Range(1000, 9999, ErrorMessage = "The Id must be a 7-digit number.")]
         public int Id { get; set; }
         [EmailAddress(ErrorMessage = "The email must be a valid email address.")]
         public string email { get; set; }
@@ -16,5 +15,6 @@ namespace WebApplication1.Models
         public string name { get; set; }
         public int phone { get; set; }
         public string universityMajor { get; set; }
-    }
+    
+}
 }

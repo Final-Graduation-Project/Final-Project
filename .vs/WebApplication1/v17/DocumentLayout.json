@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "D:\\project_node_js\\Final-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\evententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\evententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\studententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\studententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\eventcontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\eventcontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\eventaddentitycs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\eventaddentitycs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\event\\eventserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\event\\eventserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\teacherentitycs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\teacherentitycs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EventEntity.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\EventEntity.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Table\\EventEntity.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\EventEntity.cs",
-              "RelativeToolTip": "WebApplication1\\Table\\EventEntity.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAcwCQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T23:22:24.435Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Event.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Event.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Table\\Event.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Event.cs",
-              "RelativeToolTip": "WebApplication1\\Table\\Event.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAYwBYAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T23:15:58.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EventAddEntitycs.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\EventAddEntitycs.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Model\\EventAddEntitycs.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\EventAddEntitycs.cs",
-              "RelativeToolTip": "WebApplication1\\Model\\EventAddEntitycs.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAA5wBYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T23:15:33.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EventServer.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\Event\\EventServer.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Service\\Event\\EventServer.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\Event\\EventServer.cs",
-              "RelativeToolTip": "WebApplication1\\Service\\Event\\EventServer.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAkwCQAAACvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T18:52:46.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EventControllercs.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\EventControllercs.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\EventControllercs.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\EventControllercs.cs",
-              "RelativeToolTip": "WebApplication1\\Controllers\\EventControllercs.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAUwBwAAAAhAAAA",
+              "Title": "TeacherEntitycs.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\TeacherEntitycs.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Model\\TeacherEntitycs.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\TeacherEntitycs.cs",
+              "RelativeToolTip": "WebApplication1\\Model\\TeacherEntitycs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T01:31:21.903Z",
+              "WhenOpened": "2024-03-26T23:17:22.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "studentEntity.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\studentEntity.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Model\\studentEntity.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\studentEntity.cs",
+              "RelativeToolTip": "WebApplication1\\Model\\studentEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T23:17:21.874Z",
               "EditorCaption": ""
             }
           ]

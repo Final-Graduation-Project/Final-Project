@@ -21,7 +21,7 @@ public class StudentController : Controller
    
     [HttpPost("AddStudent")]
     
-    public async Task<IActionResult> AddStudent(RigEntity m)
+    public async Task<IActionResult> AddStudent(studentEntity m)
     {
         if(await _studentService.GetStudent(m.Id) != null)
             return BadRequest("Student Already Exist");

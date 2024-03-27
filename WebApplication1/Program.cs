@@ -13,6 +13,7 @@ using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1;
 using WebApplication1.Services.Event;
+using WebApplication1.Service.concilMember;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(c => c.UseSqlServer(connStr));
 
 builder.Services.AddControllers();
 
-builder.services.AddCors(options =>
+builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowAll", builder =>
             {
@@ -54,6 +55,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IStaffMemberService, StaffMemberService>();
 builder.Services.AddScoped<IEventServer, EventServer>();
+builder.Services.AddScoped<IconcilMemberService, concilMemberService>();
 
 
 // Add distributed memory cache for session

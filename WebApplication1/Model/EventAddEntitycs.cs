@@ -14,7 +14,7 @@ public class EventAddEntitycs
 
     public int NumberParticipateActivity { get; set; }
 
-    public int StudentID { get; set; }
+    public int concilMemberID { get; set; }
 
 
 

@@ -8,6 +8,7 @@ using WebApplication1.Service.EmailConfirmation;
 using WebApplication1.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
+using WebApplication1.Model;
 
 namespace WebApplication1.Controllers
 {
@@ -31,7 +32,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(RigEntity model)
+        public async Task<IActionResult> Register(TeacherEntitycs model)
         {
             if (ModelState.IsValid)
             {
@@ -43,7 +44,7 @@ namespace WebApplication1.Controllers
                 }
 
                 // Create a new user entity based on the provided model
-                var user = new RigEntity
+                var user = new TeacherEntitycs
                 {
                     name = model.name,
                     email = model.email,

@@ -12,8 +12,15 @@ public class Student
         private string confirmPassword;
         private string universityMajor;
         private int phone;
-    
-        public ICollection<EventEntity>? Events { get; set; }
+
+
+
+
+
+    public Student()
+    {
+
+    }
     
         public Student(string studentName, int studentID, string email, string password, string confirmPassword, string universityMajor, int phone)
         {
@@ -75,4 +82,7 @@ public class Student
             get { return phone; } 
             set { phone = value; } 
         }
+
+    
+
 }
