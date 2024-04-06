@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,10 +14,13 @@ using WebApplication1.Service.Student;
 using WebApplication1;
 using WebApplication1.Services.Event;
 using WebApplication1.Service.concilMember;
+using WebApplication1.Services.Dijkstra;
+using WebApplication1.map;
+using Ninject.Planning.Bindings;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(c => c.UseSqlServer(connStr));
 
@@ -32,6 +35,11 @@ builder.Services.AddCors(options =>
                        .AllowAnyHeader();
             });
         });
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals;
+});
+
 // Add JWT authentication
 builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
@@ -56,26 +64,75 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IStaffMemberService, StaffMemberService>();
 builder.Services.AddScoped<IEventServer, EventServer>();
 builder.Services.AddScoped<IconcilMemberService, concilMemberService>();
+builder.Services.AddScoped<IDijkstraService, DijkstraService>();
 
 
-// Add distributed memory cache for session
+var buildings = new List<Building>
+{
+    new Building("Eng", 432, 800),
+    new Building("Pharmacy", 540, 380),
+    new Building("Art", 390, 440),
+    new Building("IT", 860 , 315),
+    new Building("zane", 900 , 344),
+    new Building("tarbeya", 877 , 383),
+    new Building("oqoq", 865 , 425),
+    new Building("olom", 910 , 900),
+    new Building("business", 1337 , 632),
+    new Building("mojama", 730 , 630),
+    new Building("adab", 680 , 444),
+};
+
+var distances = new List<Distance>
+{
+    new Distance("IT", "zane", 20),
+    new Distance("IT", "Pharmacy", 120),
+    new Distance("Pharmacy", "Art", 110),
+    new Distance("Pharmacy", "adab", 120),
+    new Distance("adab", "mojama", 150),
+    new Distance("zane", "tarbeya", 30),
+    new Distance("tarbeya", "oqoq", 45),
+    new Distance("mojama", "business", 300),
+    new Distance("business", "olom", 180),
+    new Distance("olom", "Eng", 83),
+    new Distance("Eng", "Art", 400),
+    new Distance("mojama", "oqoq", 100),
+    new Distance("olom", "mojama", 120),
+};
+
+var graph = new Dictionary<string, Dictionary<string, double>>();
+
+foreach (var building in buildings)
+{
+    graph[building.Name] = new Dictionary<string, double>();
+}
+
+foreach (var distance in distances)
+{
+    if (graph.ContainsKey(distance.From) && graph.ContainsKey(distance.To))
+    {
+        graph[distance.From][distance.To] = distance.DistanceValue;
+        graph[distance.To][distance.From] = distance.DistanceValue;
+    }
+}
+
+builder.Services.AddSingleton(graph);
+
+
+
+
 builder.Services.AddDistributedMemoryCache();
 
-// Add HTTP context accessor
 builder.Services.AddHttpContextAccessor();
 
-// Configure session
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set the session timeout
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
 });
 
 var app = builder.Build();
 
-// Use session middleware
 app.UseSession();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -1,13 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using WebApplication1.Models;
+using WebApplication1.Services.Event;
+using WebApplication1.Services;
+using WebApplication1.map;
+using WebApplication1.Service.concilMember;
 using WebApplication1.Service.EmailConfirmation;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using WebApplication1.Services.Event;
-using WebApplication1.Service.concilMember;
+using WebApplication1.Services.Dijkstra;
+
 
 
 namespace WebApplication1
@@ -30,18 +36,22 @@ namespace WebApplication1
             services.AddTransient<IStaffMemberService, StaffMemberService>();
             services.AddTransient<IEventServer, EventServer>();
             services.AddTransient<IconcilMemberService, concilMemberService>();
-            services.AddScoped<IEventServer, EventServer>();
+            services.AddTransient<IDijkstraService, DijkstraService>();
+
+
+
 
 
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
-            services.AddTransient<IEmailSender, EmailSender>(); // Transient lifetime
+            services.AddTransient<IEmailSender, EmailSender>();
+
+            services.AddHttpContextAccessor();
+
+
+            
 
             services.AddControllersWithViews();
         }
-
-
-
-
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -54,6 +64,7 @@ namespace WebApplication1
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

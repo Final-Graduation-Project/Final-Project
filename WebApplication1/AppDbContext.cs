@@ -17,9 +17,4 @@ public class AppDbContext : DbContext
 
     public DbSet<studentConcilMember> studentConcilMembers { get; set;}
 
-
-
-
-
-
 }

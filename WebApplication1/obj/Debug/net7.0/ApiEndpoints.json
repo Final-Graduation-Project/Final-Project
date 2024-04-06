@@ -37,6 +37,37 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BuildingDistanceController",
+    "Method": "GetDistance",
+    "RelativePath": "api/building-distance/BuildingDistance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DistanceResult, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.concilMemberController",
     "Method": "AddConcilmember",
     "RelativePath": "api/concilMember/AddConcilmember",
