@@ -34,7 +34,7 @@ public class StaffMemberService : IStaffMemberService
 
     public async Task<Table.Teacher> GetStaffMember(int id)
     {
-        var staffMember = await _context.Teachers.FirstOrDefaultAsync(x => x.TeacherID == id);
+        var staffMember = await _context.Teachers.FindAsync(id);
         return staffMember;
     }
     public void setsessionvalue(Table.Teacher teacher)

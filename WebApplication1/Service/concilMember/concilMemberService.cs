@@ -9,7 +9,7 @@ namespace WebApplication1.Service.concilMember
     {
         Task<studentConcilMember> AddConcilmember(concilMemberEntity m);
         Task<studentConcilMember> UpdateConcilmember(concilMemberEntity m);
-        void setsessionvalue(studentConcilMember concilMember);
+        Task<studentConcilMember> GetConcilmember(int id);
     }
 
     public class concilMemberService : IconcilMemberService
@@ -31,6 +31,11 @@ namespace WebApplication1.Service.concilMember
             await _context.SaveChangesAsync();
             return concilMember;
         }
+        public async Task<studentConcilMember> GetConcilmember(int id)
+        {
+            var concilMember = await _context.studentConcilMembers.FindAsync(id);
+            return concilMember;
+        }
 
         public async Task<studentConcilMember> UpdateConcilmember(concilMemberEntity m)
         {
@@ -48,12 +53,6 @@ namespace WebApplication1.Service.concilMember
             return existingConcilMember;
         }
 
-        public void setsessionvalue(studentConcilMember concilMember)
-        {
-            _httpContextAccessor.HttpContext.Session.SetInt32("ActivityID", concilMember.ConcilMemberID);
-            _httpContextAccessor.HttpContext.Session.SetString("ActivityName", concilMember.ConcilMemberName);
-            _httpContextAccessor.HttpContext.Session.SetString("LocationOfActivity", concilMember.Email);
-            _httpContextAccessor.HttpContext.Session.SetString("ActivityExecutionTime", concilMember.EntityResponsibleActivity);
-        }
+      
     }
 }
