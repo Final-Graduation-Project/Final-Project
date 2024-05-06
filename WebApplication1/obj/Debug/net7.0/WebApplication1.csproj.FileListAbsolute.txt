@@ -319,9 +319,3 @@ D:\project_node_js\Final-Project\WebApplication1\bin\Debug\net7.0\WebApplication
 D:\project_node_js\Final-Project\WebApplication1\bin\Debug\net7.0\WebApplication1.pdb
 D:\project_node_js\Final-Project\WebApplication1\obj\Debug\net7.0\WebApplication1.genruntimeconfig.cache
 D:\project_node_js\Final-Project\WebApplication1\obj\Debug\net7.0\ref\WebApplication1.dll
-C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Ninject.dll
-C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\Scrutor.dll
-C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\SendGrid.dll
-C:\Users\twitter\OneDrive\Documents\GitHub\Final-Project\WebApplication1\bin\Debug\net7.0\StarkbankEcdsa.dll

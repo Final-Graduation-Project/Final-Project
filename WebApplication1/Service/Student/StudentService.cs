@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
-using WebApplication1.Service.concilMember;
 using WebApplication1.Table;
 
 
@@ -19,14 +18,12 @@ public class StudentService : IStudentService
 
     private readonly AppDbContext _context;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly IconcilMemberService _studentConcilMemberService;
 
    
-    public StudentService(AppDbContext context, IHttpContextAccessor httpContextAccessor, IconcilMemberService studentConcilMemberService)
+    public StudentService(AppDbContext context, IHttpContextAccessor httpContextAccessor)
     {
         _context = context;
         _httpContextAccessor = httpContextAccessor;
-        _studentConcilMemberService = studentConcilMemberService;
     }
    
     
@@ -50,23 +47,13 @@ public class StudentService : IStudentService
     }
     public void setsessionvalue(Table.Student student)
     {
-        if (_studentConcilMemberService.GetConcilmember(student.StudentID) != null)
-        {
-            _httpContextAccessor.HttpContext.Session.SetInt32("Id", student.StudentID);
-            _httpContextAccessor.HttpContext.Session.SetString("Name", student.StudentName);
-            _httpContextAccessor.HttpContext.Session.SetString("Email", student.Email);
-            _httpContextAccessor.HttpContext.Session.SetInt32("Phone", student.Phone);
-            _httpContextAccessor.HttpContext.Session.SetString("Role", "student_concil_member");
-        }
-        else
-        {
-            _httpContextAccessor.HttpContext.Session.SetInt32("Id", student.StudentID);
-            _httpContextAccessor.HttpContext.Session.SetString("Name", student.StudentName);
-            _httpContextAccessor.HttpContext.Session.SetString("Email", student.Email);
-            _httpContextAccessor.HttpContext.Session.SetInt32("Phone", student.Phone);
-            _httpContextAccessor.HttpContext.Session.SetString("Role", "student");
-        }
-
+        
+        _httpContextAccessor.HttpContext.Session.SetInt32("Id", student.StudentID);
+        _httpContextAccessor.HttpContext.Session.SetString("Name", student.StudentName);
+        _httpContextAccessor.HttpContext.Session.SetString("Email", student.Email);
+        _httpContextAccessor.HttpContext.Session.SetInt32("Phone", student.Phone);
+        _httpContextAccessor.HttpContext.Session.SetString("Role", "student");
+       
     }
     public int? GetCurrentLoggedIn()
     {
