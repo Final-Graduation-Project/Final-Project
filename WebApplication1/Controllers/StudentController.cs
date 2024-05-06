@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
+using WebApplication1.Service.concilMember;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1.Table;
@@ -13,10 +14,12 @@ public class StudentController : Controller
 {
     private readonly IStudentService _studentService;
     private readonly IStaffMemberService _staffMemberService;
-    public StudentController(IStudentService studentService, IStaffMemberService staffMemberService)
+    private readonly IconcilMemberService _studentConcilMemberService;
+    public StudentController(IStudentService studentService, IStaffMemberService staffMemberService, IconcilMemberService studentConcilMemberService)
     {
         _studentService = studentService;
         _staffMemberService = staffMemberService;
+        _studentConcilMemberService = studentConcilMemberService;
     }
    
     [HttpPost("AddStudent")]
@@ -40,19 +43,22 @@ public class StudentController : Controller
     [HttpPost("login")]
     public async Task<IActionResult> login(LoginEntity u)
     {
-        if (u.Id.ToString().Length==7)
+        if (u.Id.ToString().Length == 7)
         {
-            Student user = await _studentService.GetStudent(u.Id);
-            if (user == null)
-            {
-                return BadRequest("user dose not exist");
-            }
-            if (u.password!= user.Password)
-            {
-                return BadRequest("wrong password");
-            }
-            _studentService.setsessionvalue(user);
-            return Ok("Login Success");
+                Student user = await _studentService.GetStudent(u.Id);
+                if (user == null)
+                {
+                    return BadRequest("user dose not exist");
+                }
+
+                if (u.password != user.Password)
+                {
+                    return BadRequest("wrong password");
+                }
+
+                _studentService.setsessionvalue(user);
+                return Ok("Login Success");
+            
         }
         else if (u.Id.ToString().Length==4)
         {
