@@ -18,7 +18,8 @@ namespace WebApplication1.Migrations
                     ProbosalID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProbosalDescribtion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TargetParty = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TargetParty = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +48,6 @@ namespace WebApplication1.Migrations
                     StudentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UniversityMajor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<int>(type: "int", nullable: false)
                 },
@@ -85,6 +85,7 @@ namespace WebApplication1.Migrations
                     EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActivityDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumberParticipateActivity = table.Column<int>(type: "int", nullable: false),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ConcilMemberID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

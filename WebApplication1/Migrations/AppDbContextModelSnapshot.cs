@@ -51,6 +51,10 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LocationOfActivity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -108,6 +112,10 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProbosalID"));
 
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProbosalDescribtion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -125,10 +133,6 @@ namespace WebApplication1.Migrations
                 {
                     b.Property<int>("StudentID")
                         .HasColumnType("int");
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()

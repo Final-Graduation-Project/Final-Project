@@ -67,9 +67,9 @@ namespace WebApplication1.Controllers
         }
     }
         [HttpPut("UpdateEvent")]
-        public async Task<IActionResult> UpdateEvent( [FromBody] EventAddEntitycs updateEvent)
+        public async Task<IActionResult> UpdateEvent( [FromBody] EventAddEntitycs updateEvent,int id)
         {
-            var updateevent = await _eventServer.UpdateEvent( updateEvent);
+            var updateevent = await _eventServer.UpdateEvent( updateEvent,id);
             if (updateevent != null)
             {
                 var res = new EventResource

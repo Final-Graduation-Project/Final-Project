@@ -9,7 +9,6 @@ public class Student
         private int studentID;
         private string email;
         private string password;
-        private string confirmPassword;
         private string universityMajor;
         private int phone;
 
@@ -22,13 +21,12 @@ public class Student
 
     }
     
-        public Student(string studentName, int studentID, string email, string password, string confirmPassword, string universityMajor, int phone)
+        public Student(string studentName, int studentID, string email, string password , string universityMajor, int phone)
         {
             this.studentName = studentName;
             this.studentID = studentID;
             this.email = email;
             this.password = password;
-            this.confirmPassword = confirmPassword;
             this.universityMajor = universityMajor;
             this.phone = phone;
         }
@@ -62,13 +60,7 @@ public class Student
             set { password = value; } 
         }
     
-        [Required]
-        public string ConfirmPassword 
-        { 
-            get { return confirmPassword; } 
-            set { confirmPassword = value; } 
-        }
-    
+       
         [Required]
         public string UniversityMajor 
         { 

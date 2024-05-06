@@ -14,6 +14,8 @@ public class EventAddEntitycs
 
     public int NumberParticipateActivity { get; set; }
 
+    public string imagePath { get; set; }
+
     public int concilMemberID { get; set; }
 
 

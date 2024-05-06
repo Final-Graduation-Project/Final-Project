@@ -169,6 +169,117 @@
         "Name": "updateEvent",
         "Type": "WebApplication1.Models.EventAddEntitycs",
         "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.OfficeHourController",
+    "Method": "AddOfficeHour",
+    "RelativePath": "api/OfficeHour/AddOfficeHour",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "m",
+        "Type": "WebApplication1.Model.OfficeHourEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.OfficeHourController",
+    "Method": "DeleteOfficeHour",
+    "RelativePath": "api/OfficeHour/DeleteOfficeHour",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OfficeHourID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.OfficeHourController",
+    "Method": "UpdateOfficeHour",
+    "RelativePath": "api/OfficeHour/UpdateOfficeHour",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "m",
+        "Type": "WebApplication1.Model.OfficeHourEntity",
+        "IsRequired": true
+      },
+      {
+        "Name": "OfficeHourID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProbosalController",
+    "Method": "AddPRobosal",
+    "RelativePath": "api/Probosal/AddProbosal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "m",
+        "Type": "WebApplication1.Model.ProbosalEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProbosalController",
+    "Method": "DeleteProbosal",
+    "RelativePath": "api/Probosal/DeleteProbosal",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProbosalController",
+    "Method": "UpdateProbosal",
+    "RelativePath": "api/Probosal/UpdateProbosal",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "m",
+        "Type": "WebApplication1.Model.ProbosalEntity",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -12,7 +12,7 @@ using WebApplication1;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240326222616_initl")]
+    [Migration("20240418220743_initl")]
     partial class initl
     {
         /// <inheritdoc />
@@ -51,6 +51,10 @@ namespace WebApplication1.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EntityResponsibleActivity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -111,6 +115,10 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProbosalID"));
 
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProbosalDescribtion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -128,10 +136,6 @@ namespace WebApplication1.Migrations
                 {
                     b.Property<int>("StudentID")
                         .HasColumnType("int");
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()

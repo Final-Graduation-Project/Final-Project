@@ -17,7 +17,7 @@ namespace WebApplication1.Services.Event;
 
     Task<Table.EventEntity> GitEvent(string EntityResponsibleActivity);
 
-    Task<EventEntity> UpdateEvent(EventAddEntitycs m);
+    Task<EventEntity> UpdateEvent(EventAddEntitycs m,int evintid);
     Task<bool> DeleteEvent(int eventId);
 
 
@@ -38,7 +38,7 @@ namespace WebApplication1.Services.Event;
     }
     public async Task<Table.EventEntity> AddEvent(EventAddEntitycs m)
     {
-        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity,m.EntityResponsibleActivity, m.ActivityDescription, m.NumberParticipateActivity,m.concilMemberID);
+        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity,m.EntityResponsibleActivity, m.ActivityDescription, m.NumberParticipateActivity,m.concilMemberID,m.imagePath);
         
         _context.Events.Add(Event);
         await _context.SaveChangesAsync();
@@ -61,15 +61,15 @@ namespace WebApplication1.Services.Event;
     {
         var eventToDelete = await _context.Events.FindAsync(eventId);
         if (eventToDelete == null)
-            return false; // Event not found
+            return false; 
 
         _context.Events.Remove(eventToDelete);
         await _context.SaveChangesAsync();
-        return true; // Event deleted successfully
+        return true; 
     }
-    public async Task<EventEntity> UpdateEvent( EventAddEntitycs m)
+    public async Task<EventEntity> UpdateEvent( EventAddEntitycs m, int id)
     {
-        var existingEvent = await _context.Events.FindAsync();
+        var existingEvent = await _context.Events.FindAsync(id);
         if (existingEvent == null)
         {
             return null;

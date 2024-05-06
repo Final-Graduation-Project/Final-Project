@@ -13,6 +13,8 @@ using WebApplication1.Service.EmailConfirmation;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1.Services.Dijkstra;
+using WebApplication1.Service.Probosal;
+using WebApplication1.Service.OfficeHour;
 
 
 
@@ -37,6 +39,10 @@ namespace WebApplication1
             services.AddTransient<IEventServer, EventServer>();
             services.AddTransient<IconcilMemberService, concilMemberService>();
             services.AddTransient<IDijkstraService, DijkstraService>();
+            services.AddTransient<IProbosalService, ProbosalService>();
+            services.AddTransient<IOfficeHour, OfficeHourServer>();
+
+
 
 
 

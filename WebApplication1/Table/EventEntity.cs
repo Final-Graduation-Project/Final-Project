@@ -16,6 +16,8 @@ namespace WebApplication1.Table
         public string EntityResponsibleActivity { get; set; }
         public string ActivityDescription { get; set; }
         public int NumberParticipateActivity { get; set; }
+        public string ImagePath { get; set; }
+
         public int ConcilMemberID { get; set; }
 
         [ForeignKey("ConcilMemberID")]
@@ -23,7 +25,7 @@ namespace WebApplication1.Table
 
         public EventEntity() { }
 
-        public EventEntity(int activityID, string activityName, string locationOfActivity, DateTime activityExecutionTime, DateTime dateImplementationActivity, string entityResponsibleActivity, string activityDescription, int numberParticipateActivity, int concilMemberID)
+        public EventEntity(int activityID, string activityName, string locationOfActivity, DateTime activityExecutionTime, DateTime dateImplementationActivity, string entityResponsibleActivity, string activityDescription, int numberParticipateActivity, int concilMemberID, string imagePath)
         {
             ActivityID = activityID;
             ActivityName = activityName;
@@ -34,6 +36,7 @@ namespace WebApplication1.Table
             ActivityDescription = activityDescription;
             NumberParticipateActivity = numberParticipateActivity;
             ConcilMemberID = concilMemberID;
+            ImagePath = imagePath; 
         }
     }
 }
