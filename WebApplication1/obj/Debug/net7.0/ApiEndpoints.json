@@ -68,7 +68,7 @@
     ]
   },
   {
-    "ContainingType": "WebApplication1.Controllers.concilMemberController",
+    "ContainingType": "concilMemberController",
     "Method": "AddConcilmember",
     "RelativePath": "api/concilMember/AddConcilmember",
     "HttpMethod": "POST",
@@ -84,7 +84,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.concilMemberController",
+    "ContainingType": "concilMemberController",
+    "Method": "GetAllConcilMembers",
+    "RelativePath": "api/concilMember/GetAllConcilMembers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "concilMemberController",
+    "Method": "GetConcilMemberById",
+    "RelativePath": "api/concilMember/GetConcilMemberById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "concilMemberController",
     "Method": "UpdateConcilmember",
     "RelativePath": "api/concilMember/UpdateConcilmember",
     "HttpMethod": "PUT",
@@ -174,6 +200,59 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.MessagesController",
+    "Method": "SendMessage",
+    "RelativePath": "api/Messages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "messageDto",
+        "Type": "WebApplication1.Table.MessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.MessagesController",
+    "Method": "GetMessages",
+    "RelativePath": "api/Messages/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.MessagesController",
+    "Method": "GetMessagesBetweenUsers",
+    "RelativePath": "api/Messages/{userId1}/{userId2}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId1",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId2",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -295,6 +374,22 @@
       {
         "Name": "m",
         "Type": "WebApplication1.Model.TeacherEntitycs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.StaffMember",
+    "Method": "GetStaffMember",
+    "RelativePath": "api/StaffMember/GetStaffMember/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -16,8 +16,6 @@ using WebApplication1.Services.Dijkstra;
 using WebApplication1.Service.Probosal;
 using WebApplication1.Service.OfficeHour;
 
-
-
 namespace WebApplication1
 {
     public class Startup
@@ -42,20 +40,11 @@ namespace WebApplication1
             services.AddTransient<IProbosalService, ProbosalService>();
             services.AddTransient<IOfficeHour, OfficeHourServer>();
 
-
-
-
-
-
-
+            // Register messaging service
+            services.AddTransient<IMessageService, MessageService>();
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, EmailSender>();
-
             services.AddHttpContextAccessor();
-
-
-            
-
             services.AddControllersWithViews();
         }
 
@@ -80,6 +69,13 @@ namespace WebApplication1
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "messages",
+                    pattern: "api/messages/{action}/{id?}", // Adjust pattern as needed
+                    defaults: new { controller = "Messages" }); // Assuming your controller is named MessagesController
+
+                // Other endpoint mappings...
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

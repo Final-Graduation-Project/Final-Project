@@ -11,6 +11,11 @@ public class Student
         private string password;
         private string universityMajor;
         private int phone;
+    [NotMapped]
+    public List<Message> SentMessages { get; set; }
+
+    [NotMapped]
+    public List<Message> ReceivedMessages { get; set; }
 
 
 

@@ -12,6 +12,22 @@ namespace WebApplication1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    MessageId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SenderId = table.Column<int>(type: "int", nullable: false),
+                    ReceiverId = table.Column<int>(type: "int", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SentAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.MessageId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Proposals",
                 columns: table => new
                 {
@@ -31,9 +47,11 @@ namespace WebApplication1.Migrations
                 columns: table => new
                 {
                     ConcilMemberID = table.Column<int>(type: "int", nullable: false),
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ConcilMemberName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastSeen = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -139,6 +157,9 @@ namespace WebApplication1.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "OfficeHours");

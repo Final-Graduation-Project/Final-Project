@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\project_node_js\\Final-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\concilmembercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\concilmembercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\probosal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\probosal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\staffmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\staffmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\staffmembers\\staffmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\staffmembers\\staffmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,27 +35,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "WebApplication1\\Program.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAUwJwAAAAAAAAA",
+              "Title": "concilMemberController.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\concilMemberController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\concilMemberController.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\concilMemberController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\concilMemberController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T20:22:38.099Z",
+              "WhenOpened": "2024-05-25T10:31:24.914Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Probosal.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Probosal.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Table\\Probosal.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Probosal.cs",
-              "RelativeToolTip": "WebApplication1\\Table\\Probosal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "StaffMember.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\StaffMember.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\StaffMember.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\StaffMember.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\StaffMember.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAiwCMAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T21:22:08.668Z"
+              "WhenOpened": "2024-05-25T10:29:50.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StaffMemberService.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "RelativeToolTip": "WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T10:29:29.675Z"
             }
           ]
         }

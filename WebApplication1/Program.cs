@@ -19,6 +19,7 @@ using WebApplication1.map;
 using Ninject.Planning.Bindings;
 using WebApplication1.Service.Probosal;
 using WebApplication1.Service.OfficeHour;
+using WebApplication1.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -69,6 +70,7 @@ builder.Services.AddScoped<IconcilMemberService, concilMemberService>();
 builder.Services.AddScoped<IDijkstraService, DijkstraService>();
 builder.Services.AddScoped<IProbosalService, ProbosalService>();
 builder.Services.AddScoped<IOfficeHour, OfficeHourServer>();
+builder.Services.AddScoped<IMessageService, MessageService>();
 
 
 

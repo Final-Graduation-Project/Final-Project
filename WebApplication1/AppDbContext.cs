@@ -14,7 +14,17 @@ public class AppDbContext : DbContext
     public DbSet<EventEntity> Events { get; set; }
     public DbSet<Probosal> Proposals { get; set; }
     public DbSet<OfficeHour> OfficeHours { get; set; }
+    public DbSet<Message> Messages { get; set; }
 
     public DbSet<studentConcilMember> studentConcilMembers { get; set;}
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Message>()
+            .HasKey(m => m.MessageId);
+    }
+
+
+
+
 
 }

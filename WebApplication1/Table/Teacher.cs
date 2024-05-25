@@ -12,6 +12,7 @@ public class Teacher
     private string _confirmPassword;
     private int _phone;
 
+    
     // Navigation property for related entities
     public ICollection<OfficeHour> OfficeHours { get; set; }
 

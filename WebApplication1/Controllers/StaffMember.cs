@@ -32,6 +32,22 @@ public class StaffMember : Controller
         return Ok(resorce);
     }
 
+    [HttpGet("GetStaffMember/{id}")]
+    public async Task<IActionResult> GetStaffMember(int id)
+    {
+        var teacer = await _staffMemberService.GetStaffMember(id);
+        if (teacer == null)
+        {
+            return NotFound();
+        }
+        var resource = new StaffMemberResource
+        {
+            ID = teacer.TeacherID,
+            name = teacer.Teachername,
+            email = teacer.Email
+        };
+        return Ok(resource);
+    }
 
-   
+
 }

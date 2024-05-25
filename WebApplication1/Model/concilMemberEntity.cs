@@ -9,12 +9,18 @@ namespace WebApplication1.Model
         [Range (1000000, 9000000, ErrorMessage ="The ID must be a 7-digit number.")]
         public int concilMemberID { get; set; }
 
+        public string password {  get; set; }
+
+        public string confirm_password { get; set; }
+
         public string concilMemberName { get; set; }
 
         [EmailWithSpecificFormat("student.birzeit.edu", ErrorMessage = "Email must be in the format <7-digit-number>@student.birzite.edu.")]
         public string email { get; set; }
 
         public string EntityResponsibleActivity { get; set; }
+        public DateTime LastSeen { get; set; } // New property
+
 
     }
 }
