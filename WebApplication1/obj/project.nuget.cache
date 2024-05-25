@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "iZjzwqtpuTHdpFGEgBO4j0tovbovh6z1hZiN2cApa0wbjL26TTw2mD5V2MqXYNdHlpO9+vefS6St2K2d4zu42A==",
-=======
   "dgSpecHash": "CRPatyMgxLKOXq0ORLcn7vb/NcWcxC7c4DkX+U4qtGUwXkvAYG6SxIv/OtR4HUxPI+BaW8Hr2onX8yiT050OYQ==",
->>>>>>> 7b73e7e13205e0f55aaac371b67d77eca66868b7
   "success": true,
   "projectFilePath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [

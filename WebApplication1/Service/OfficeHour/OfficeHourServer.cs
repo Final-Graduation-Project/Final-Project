@@ -1,4 +1,5 @@
-﻿using WebApplication1.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Model;
 
 namespace WebApplication1.Service.OfficeHour
 {
@@ -59,9 +60,9 @@ namespace WebApplication1.Service.OfficeHour
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<Table.OfficeHour> GetOfficeHour(int OfficeHourid)
+        public async Task<Table.OfficeHour> GetOfficeHour(int TeacherId)
         {
-            var getOfficeHour = await _context.OfficeHours.FindAsync(OfficeHourid);
+            var getOfficeHour = await _context.OfficeHours.FirstAsync(x=>x.TeacherId==TeacherId);
             return getOfficeHour;
         }
         public void setsessionvalue(Table.OfficeHour officeHour) 
