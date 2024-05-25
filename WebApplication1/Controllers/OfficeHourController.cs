@@ -1,5 +1,6 @@
 ﻿using WebApplication1.Resorces;
 using WebApplication1.Service.OfficeHour;
+using WebApplication1.Service.StaffMembers;
 using WebApplication1.Services.Event;
 using WebApplication1.Table;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,14 @@ namespace WebApplication1.Controllers
     public class OfficeHourController : Controller
     {
         private readonly IOfficeHour _OfficeHour;
+        private readonly IStaffMemberService _staffMember;
 
-        public OfficeHourController(IOfficeHour OfficeHour)
+        public OfficeHourController(IOfficeHour OfficeHour, IStaffMemberService staffMember)
         {
             _OfficeHour = OfficeHour;
+            _staffMember = staffMember;
         }
+       
 
         [HttpPost("AddOfficeHour")]
         public async Task<IActionResult> AddOfficeHour(OfficeHourEntity m)
@@ -73,6 +77,28 @@ namespace WebApplication1.Controllers
             else
             {
                 return NotFound();  
+            }
+        }
+        [HttpGet("GetOfficeHour")]
+        public async Task<IActionResult> GetOfficeHour(string TeacherName)
+        {
+            int TeacherId = await _staffMember.GetStaffMemberId(TeacherName);
+            var res = await _OfficeHour.GetOfficeHour(TeacherId);
+            if (res != null)
+            {
+                var resource = new OfficeHourResource
+                {
+                    tehcherFreeDay = res.TeacherFreeDay,
+                    tehcerstartFreeTime = res.TeacherFreeStartTime,
+                    tehcerEndFreeTime = res.TeacherFreeEndTime,
+                    buildingName = res.BuildingName,
+                    rommNumber = res.RoomNumber,
+                };
+                return Ok(resource);
+            }
+            else
+            {
+                return NotFound();
             }
         }
 
