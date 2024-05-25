@@ -11,6 +11,7 @@ namespace WebApplication1.Service.OfficeHour
         Task<bool> DeletOfficeHour(int OfficeHourid);
 
         void setsessionvalue(Table.OfficeHour OfficeHourEntity);
+        Task<Table.OfficeHour> GetOfficeHour(int OfficeHourid);
     }
     public class OfficeHourServer : IOfficeHour
     {
@@ -57,6 +58,11 @@ namespace WebApplication1.Service.OfficeHour
             _context.OfficeHours.Remove(deletOfficeHour);
             await _context.SaveChangesAsync();
             return true;
+        }
+        public async Task<Table.OfficeHour> GetOfficeHour(int OfficeHourid)
+        {
+            var getOfficeHour = await _context.OfficeHours.FindAsync(OfficeHourid);
+            return getOfficeHour;
         }
         public void setsessionvalue(Table.OfficeHour officeHour) 
 

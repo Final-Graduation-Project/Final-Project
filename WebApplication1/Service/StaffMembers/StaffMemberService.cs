@@ -9,6 +9,7 @@ public interface IStaffMemberService
     Task<Table.Teacher> AddStaffMember(TeacherEntitycs m);
     Task<Table.Teacher> GetStaffMember(int id);
     void setsessionvalue(Table.Teacher teacher);
+    Task <int> GetStaffMemberId(string name);
 }
 
 public class StaffMemberService : IStaffMemberService
@@ -36,6 +37,12 @@ public class StaffMemberService : IStaffMemberService
     {
         var staffMember = await _context.Teachers.FirstOrDefaultAsync(x => x.TeacherID == id);
         return staffMember;
+    }
+    public async Task<int> GetStaffMemberId(string name)
+    {
+        var staffMember = await _context.Teachers.FirstOrDefaultAsync(x => x.Teachername.Equals(name));
+        int id = staffMember.TeacherID;
+        return staffMember.TeacherID;
     }
     public void setsessionvalue(Table.Teacher teacher)
     {
