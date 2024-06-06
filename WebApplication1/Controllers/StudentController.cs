@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using WebApplication1.Models;
+using WebApplication1.Service.concilMember;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1.Table;
@@ -15,6 +16,7 @@ public class StudentController : Controller
     private readonly IStudentService _studentService;
     private readonly IStaffMemberService _staffMemberService;
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IconcilMemberService _concilMemberService;
     public StudentController(IStudentService studentService, IStaffMemberService staffMemberService, IHttpContextAccessor httpContextAccessor)
     {
         _studentService = studentService;
@@ -48,13 +50,27 @@ public class StudentController : Controller
             Student user = await _studentService.GetStudent(u.Id);
             if (user == null)
             {
-                return BadRequest("user dose not exist");
+                studentConcilMember concilMember= await _concilMemberService.GetConcilMemberById(u.Id);
+                if (concilMember == null)
+                {
+                    return BadRequest("user dose not exist");
+                }
+                if (!BCrypt.Net.BCrypt.Verify(u.password, concilMember.password))
+                {
+                    return BadRequest("wrong password");
+                }
+                _concilMemberService.setsessionvalue(concilMember);
+                
             }
             if(!BCrypt.Net.BCrypt.Verify(u.password, user.Password))
             {
                 return BadRequest("wrong password");
             }
-            _studentService.setsessionvalue(user);
+            else
+            {
+                _studentService.setsessionvalue(user);
+            }
+
             //in userdetails set all details in session
             Dictionary<string, string> sessionValues = new Dictionary<string, string>();
 

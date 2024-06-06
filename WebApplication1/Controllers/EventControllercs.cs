@@ -25,13 +25,11 @@ namespace WebApplication1.Controllers
             var resource = new EventResource
             {
                 Name = res.ActivityName,
-                Description = res.ActivityDescription,
                 EventId = res.ActivityID,
                 Location = res.LocationOfActivity,
                 ExecutionTime = res.ActivityExecutionTime,
-                DateImplementation = res.DateImplementationActivity,
+                time = res.time,
                 ResponsibleActivity = res.EntityResponsibleActivity,
-                NumberParticipate = res.NumberParticipateActivity,
                 StudentID = res.ConcilMemberID,
             };
             return Ok(resource);
@@ -75,13 +73,11 @@ namespace WebApplication1.Controllers
                 var res = new EventResource
                 {
                     Name = updateevent.ActivityName,
-                    Description = updateevent.ActivityDescription,
                     EventId = updateevent.ActivityID,
                     Location = updateevent.LocationOfActivity,
                     ExecutionTime = updateevent.ActivityExecutionTime,
-                    DateImplementation = updateevent.DateImplementationActivity,
+                    time = updateevent.time,
                     ResponsibleActivity = updateevent.EntityResponsibleActivity,
-                    NumberParticipate = updateevent.NumberParticipateActivity,
                     StudentID = updateevent.ConcilMemberID,
 
                 };

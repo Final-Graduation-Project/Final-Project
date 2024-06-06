@@ -21,89 +21,74 @@ namespace WebApplication1.Services.Event;
     Task<bool> DeleteEvent(int eventId);
 
 
-    void setsessionvalue(Table.EventEntity eventEntity);
-
-
-
-
     }
+
     public class EventServer : IEventServer
     {
-    private readonly AppDbContext _context;
-    private readonly IHttpContextAccessor _httpContextAccessor;
-    public EventServer(AppDbContext context, IHttpContextAccessor httpContextAccessor)
-    {
-        _context = context;
-        _httpContextAccessor = httpContextAccessor;
-    }
-    public async Task<Table.EventEntity> AddEvent(EventAddEntitycs m)
-    {
-        var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.DateImplementationActivity,m.EntityResponsibleActivity, m.ActivityDescription, m.NumberParticipateActivity,m.concilMemberID,m.imagePath);
-        
-        _context.Events.Add(Event);
-        await _context.SaveChangesAsync();
-        return Event;
-        
-    }
+        private readonly AppDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public async Task<List<EventEntity>> GitAllEvent()
-    {
-        return await _context.Events.ToListAsync();
-    }
-
-    public async Task<Table.EventEntity> GitEvent(string name_of_the_committee)
-
-    {
-        var Event =await _context.Events.FirstOrDefaultAsync(x => x.EntityResponsibleActivity == name_of_the_committee);
-        return Event;
-    }
-    public async Task<bool> DeleteEvent(int eventId)
-    {
-        var eventToDelete = await _context.Events.FindAsync(eventId);
-        if (eventToDelete == null)
-            return false; 
-
-        _context.Events.Remove(eventToDelete);
-        await _context.SaveChangesAsync();
-        return true; 
-    }
-    public async Task<EventEntity> UpdateEvent( EventAddEntitycs m, int id)
-    {
-        var existingEvent = await _context.Events.FindAsync(id);
-        if (existingEvent == null)
+        public EventServer(AppDbContext context, IHttpContextAccessor httpContextAccessor)
         {
-            return null;
+            _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
-        existingEvent.ActivityName = m.ActivityName;
-        existingEvent.ActivityID = m.ActivityID;
-        existingEvent.LocationOfActivity = m.LocationOfActivity;
-        existingEvent.ActivityExecutionTime = m.ActivityExecutionTime;
-        existingEvent.DateImplementationActivity = m.DateImplementationActivity;
-        existingEvent.EntityResponsibleActivity = m.EntityResponsibleActivity;
-        existingEvent.ActivityDescription = m.ActivityDescription;
-        existingEvent.NumberParticipateActivity = m.NumberParticipateActivity;
-        existingEvent.ConcilMemberID = m.concilMemberID;
 
-        await _context.SaveChangesAsync();
-        return existingEvent;
+        public async Task<Table.EventEntity> AddEvent(EventAddEntitycs m)
+        {
+            var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime,
+                m.time, m.EntityResponsibleActivity, m.concilMemberID, m.imagePath);
+            _context.Events.Add(Event);
+            await _context.SaveChangesAsync();
+            return Event;
+
+        }
+
+        public async Task<List<EventEntity>> GitAllEvent()
+        {
+            return await _context.Events.ToListAsync();
+        }
+
+        public async Task<Table.EventEntity> GitEvent(string name_of_the_committee)
+
+        {
+            var Event = await _context.Events.FirstOrDefaultAsync(x =>
+                x.EntityResponsibleActivity == name_of_the_committee);
+            return Event;
+        }
+
+        public async Task<bool> DeleteEvent(int eventId)
+        {
+            var eventToDelete = await _context.Events.FindAsync(eventId);
+            if (eventToDelete == null)
+                return false;
+
+            _context.Events.Remove(eventToDelete);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<EventEntity> UpdateEvent(EventAddEntitycs m, int id)
+        {
+            var existingEvent = await _context.Events.FindAsync(id);
+            if (existingEvent == null)
+            {
+                return null;
+            }
+
+            existingEvent.ActivityName = m.ActivityName;
+            existingEvent.ActivityID = m.ActivityID;
+            existingEvent.LocationOfActivity = m.LocationOfActivity;
+            existingEvent.ActivityExecutionTime = m.ActivityExecutionTime;
+            existingEvent.time = m.time;
+            existingEvent.EntityResponsibleActivity = m.EntityResponsibleActivity;
+            existingEvent.ConcilMemberID = m.concilMemberID;
+
+            await _context.SaveChangesAsync();
+            return existingEvent;
+        }
+    
+
+
     }
-
-
-    public void setsessionvalue(Table.EventEntity eventEntity)
-    {
-        _httpContextAccessor.HttpContext.Session.SetInt32("ActivityID", eventEntity.ActivityID);
-        _httpContextAccessor.HttpContext.Session.SetString("ActivityName", eventEntity.ActivityName);
-        _httpContextAccessor.HttpContext.Session.SetString("LocationOfActivity", eventEntity.LocationOfActivity);
-        _httpContextAccessor.HttpContext.Session.SetString("ActivityExecutionTime", eventEntity.ActivityExecutionTime.ToString());
-        _httpContextAccessor.HttpContext.Session.SetString("DateImplementationActivity", eventEntity.DateImplementationActivity.ToString());
-        _httpContextAccessor.HttpContext.Session.SetString("EntityResponsibleActivity", eventEntity.EntityResponsibleActivity);
-        _httpContextAccessor.HttpContext.Session.SetString("ActivityDescription", eventEntity.ActivityDescription);
-        _httpContextAccessor.HttpContext.Session.SetInt32("NumberParticipateActivity", eventEntity.NumberParticipateActivity);
-        _httpContextAccessor.HttpContext.Session.SetInt32("StudentID", eventEntity.ConcilMemberID);
-
-
-
-    }
-
-}
 
