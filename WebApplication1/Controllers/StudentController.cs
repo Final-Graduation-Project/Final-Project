@@ -50,27 +50,13 @@ public class StudentController : Controller
             Student user = await _studentService.GetStudent(u.Id);
             if (user == null)
             {
-                studentConcilMember concilMember= await _concilMemberService.GetConcilMemberById(u.Id);
-                if (concilMember == null)
-                {
-                    return BadRequest("user dose not exist");
-                }
-                if (!BCrypt.Net.BCrypt.Verify(u.password, concilMember.password))
-                {
-                    return BadRequest("wrong password");
-                }
-                _concilMemberService.setsessionvalue(concilMember);
-                
+                return BadRequest("user dose not exist");
             }
             if(!BCrypt.Net.BCrypt.Verify(u.password, user.Password))
             {
                 return BadRequest("wrong password");
             }
-            else
-            {
-                _studentService.setsessionvalue(user);
-            }
-
+            _studentService.setsessionvalue(user);
             //in userdetails set all details in session
             Dictionary<string, string> sessionValues = new Dictionary<string, string>();
 
