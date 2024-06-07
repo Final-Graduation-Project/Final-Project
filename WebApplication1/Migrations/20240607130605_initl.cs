@@ -20,8 +20,8 @@ namespace WebApplication1.Migrations
                     SenderId = table.Column<int>(type: "int", nullable: false),
                     ReceiverId = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SentAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SentAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,11 +101,9 @@ namespace WebApplication1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ActivityName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LocationOfActivity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ActivityExecutionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateImplementationActivity = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ActivityExecutionTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    time = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EntityResponsibleActivity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ActivityDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumberParticipateActivity = table.Column<int>(type: "int", nullable: false),
                     ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ConcilMemberID = table.Column<int>(type: "int", nullable: false)
                 },

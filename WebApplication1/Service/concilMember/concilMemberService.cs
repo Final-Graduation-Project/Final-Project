@@ -53,7 +53,8 @@ namespace WebApplication1.Service.concilMember
 
         public async Task<studentConcilMember> GetConcilMemberById(int id)
         {
-            return await _context.studentConcilMembers.FindAsync(id);
+            var concilMember = await _context.studentConcilMembers.FindAsync(id);
+            return concilMember;
         }
 
         public async Task<IEnumerable<studentConcilMember>> GetAllConcilMembers()
@@ -63,10 +64,10 @@ namespace WebApplication1.Service.concilMember
 
         public void setsessionvalue(studentConcilMember concilMember)
         {
-            _httpContextAccessor.HttpContext.Session.SetInt32("ActivityID", concilMember.ConcilMemberID);
-            _httpContextAccessor.HttpContext.Session.SetString("ActivityName", concilMember.ConcilMemberName);
-            _httpContextAccessor.HttpContext.Session.SetString("LocationOfActivity", concilMember.Email);
-            _httpContextAccessor.HttpContext.Session.SetString("ActivityExecutionTime", concilMember.EntityResponsibleActivity);
+            _httpContextAccessor.HttpContext.Session.SetInt32("Id", concilMember.ConcilMemberID);
+            _httpContextAccessor.HttpContext.Session.SetString("Name", concilMember.ConcilMemberName);
+            _httpContextAccessor.HttpContext.Session.SetString("Email", concilMember.Email);
+            _httpContextAccessor.HttpContext.Session.SetString("Role", concilMember.EntityResponsibleActivity);
             _httpContextAccessor.HttpContext.Session.SetString("LastSeen", concilMember.LastSeen.ToString()); // Store last seen
         }
     }

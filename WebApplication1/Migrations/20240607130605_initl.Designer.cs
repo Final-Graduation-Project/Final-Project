@@ -12,7 +12,7 @@ using WebApplication1;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240527124228_initl")]
+    [Migration("20240607130605_initl")]
     partial class initl
     {
         /// <inheritdoc />
@@ -25,54 +25,7 @@ namespace WebApplication1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("WebApplication1.Table.EventEntity", b =>
-                {
-                    b.Property<int>("ActivityID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ActivityID"));
-
-                    b.Property<string>("ActivityDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ActivityExecutionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ActivityName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ConcilMemberID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateImplementationActivity")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EntityResponsibleActivity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocationOfActivity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NumberParticipateActivity")
-                        .HasColumnType("int");
-
-                    b.HasKey("ActivityID");
-
-                    b.HasIndex("ConcilMemberID");
-
-                    b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("WebApplication1.Table.Message", b =>
+            modelBuilder.Entity("Message", b =>
                 {
                     b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
@@ -100,6 +53,48 @@ namespace WebApplication1.Migrations
                     b.HasKey("MessageId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("WebApplication1.Table.EventEntity", b =>
+                {
+                    b.Property<int>("ActivityID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ActivityID"));
+
+                    b.Property<string>("ActivityExecutionTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ActivityName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ConcilMemberID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EntityResponsibleActivity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocationOfActivity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ActivityID");
+
+                    b.HasIndex("ConcilMemberID");
+
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("WebApplication1.Table.OfficeHour", b =>

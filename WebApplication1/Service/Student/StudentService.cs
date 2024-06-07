@@ -10,7 +10,7 @@ public interface IStudentService
     Task<Table.Student> AddStudent(studentEntity m);
     Task<Table.Student> GetStudent(int id);
     void setsessionvalue(Table.Student student);
-    public int? GetCurrentLoggedIn();
+    public string? GetCurrentLoggedIn();
     public void logout();
 }
 public class StudentService : IStudentService
@@ -55,9 +55,9 @@ public class StudentService : IStudentService
         _httpContextAccessor.HttpContext.Session.SetString("Role", "student");
        
     }
-    public int? GetCurrentLoggedIn()
+    public string? GetCurrentLoggedIn()
     {
-        return _httpContextAccessor.HttpContext.Session.GetInt32("Id");
+        return _httpContextAccessor.HttpContext.Session.GetString("Role");
     }
     public void logout()
     {
