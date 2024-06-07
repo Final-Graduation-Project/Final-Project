@@ -17,11 +17,12 @@ public class StudentController : Controller
     private readonly IStaffMemberService _staffMemberService;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IconcilMemberService _concilMemberService;
-    public StudentController(IStudentService studentService, IStaffMemberService staffMemberService, IHttpContextAccessor httpContextAccessor)
+    public StudentController(IStudentService studentService, IStaffMemberService staffMemberService, IHttpContextAccessor httpContextAccessor, IconcilMemberService concilMemberService)
     {
         _studentService = studentService;
         _staffMemberService = staffMemberService;
         _httpContextAccessor = httpContextAccessor;
+        _concilMemberService = concilMemberService;
     }
    
     [HttpPost("AddStudent")]
@@ -50,13 +51,27 @@ public class StudentController : Controller
             Student user = await _studentService.GetStudent(u.Id);
             if (user == null)
             {
-                return BadRequest("user dose not exist");
+                studentConcilMember concilMember = await _concilMemberService.GetConcilMemberById(u.Id);
+                if (concilMember == null)
+                {
+                    return BadRequest("user dose not exist");
+                }
+                if (u.password != concilMember.password)
+                {
+                    return BadRequest("wrong password");
+                }
+                _concilMemberService.setsessionvalue(concilMember);
             }
-            if(!BCrypt.Net.BCrypt.Verify(u.password, user.Password))
+            else
             {
-                return BadRequest("wrong password");
+                if (!BCrypt.Net.BCrypt.Verify(u.password, user.Password))
+                {
+                    return BadRequest("wrong password");
+                }
+
+                _studentService.setsessionvalue(user);
             }
-            _studentService.setsessionvalue(user);
+
             //in userdetails set all details in session
             Dictionary<string, string> sessionValues = new Dictionary<string, string>();
 
