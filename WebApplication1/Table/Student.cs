@@ -11,6 +11,8 @@ public class Student
         private string password;
         private string universityMajor;
         private int phone;
+    public DateTime LastSeen { get; set; } // New property
+
     [NotMapped]
     public List<Message> SentMessages { get; set; }
 
@@ -26,7 +28,7 @@ public class Student
 
     }
     
-        public Student(string studentName, int studentID, string email, string password , string universityMajor, int phone)
+        public Student(string studentName, int studentID, string email, string password , string universityMajor, int phone, DateTime lastSeen)
         {
             this.studentName = studentName;
             this.studentID = studentID;
@@ -34,9 +36,11 @@ public class Student
             this.password = password;
             this.universityMajor = universityMajor;
             this.phone = phone;
-        }
-    
-        [Required]
+        LastSeen = lastSeen; // Initialize new property
+
+    }
+
+    [Required]
         public string StudentName 
         { 
             get { return studentName; } 
@@ -79,6 +83,7 @@ public class Student
             get { return phone; } 
             set { phone = value; } 
         }
+
 
     
 

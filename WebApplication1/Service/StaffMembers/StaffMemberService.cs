@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Model;
 using WebApplication1.Models;
+using WebApplication1.Table;
 
 namespace WebApplication1.Service.StaffMembers;
 
@@ -8,6 +9,8 @@ public interface IStaffMemberService
 {
     Task<Table.Teacher> AddStaffMember(TeacherEntitycs m);
     Task<Table.Teacher> GetStaffMember(int id);
+
+    Task<IEnumerable<Table.Teacher>> GetAllStaffMember();
     void setsessionvalue(Table.Teacher teacher);
     Task <int> GetStaffMemberId(string name);
 }
@@ -25,7 +28,7 @@ public class StaffMemberService : IStaffMemberService
     public async Task<Table.Teacher> AddStaffMember(TeacherEntitycs m)
     {
         var password = BCrypt.Net.BCrypt.HashPassword(m.password);
-        var staffMember = new Table.Teacher(m.name, m.Id, m.email, password, m.confpassword, m.phone);
+        var staffMember = new Table.Teacher(m.name, m.Id, m.email, password, m.confpassword, m.phone,m.LastSeen);
         
         _context.Teachers.Add(staffMember);
         await _context.SaveChangesAsync();
@@ -44,6 +47,12 @@ public class StaffMemberService : IStaffMemberService
         int id = staffMember.TeacherID;
         return staffMember.TeacherID;
     }
+    public async Task<IEnumerable<Table.Teacher>> GetAllStaffMember()
+    {
+        return await _context.Teachers.ToListAsync();
+    }
+
+
     public void setsessionvalue(Table.Teacher teacher)
     {
         _httpContextAccessor.HttpContext.Session.SetInt32("Id", teacher.TeacherID);
@@ -51,6 +60,8 @@ public class StaffMemberService : IStaffMemberService
         _httpContextAccessor.HttpContext.Session.SetString("Email", teacher.Email);
         _httpContextAccessor.HttpContext.Session.SetInt32("Phone", teacher.Phone);
         _httpContextAccessor.HttpContext.Session.SetString("Role", "teacher");
+        _httpContextAccessor.HttpContext.Session.SetString("LastSeen", teacher.LastSeen.ToString()); // Store last seen
+
     }
-   
+
 }

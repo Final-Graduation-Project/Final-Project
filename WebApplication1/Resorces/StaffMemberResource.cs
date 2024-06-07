@@ -6,5 +6,7 @@
         public String name { get; set; }
 
         public String email { get; set; }
+        public DateTime LastSeen { get; set; } // New property
+
     }
 }

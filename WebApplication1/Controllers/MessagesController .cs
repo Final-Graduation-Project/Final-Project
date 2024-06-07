@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Model;
 using WebApplication1.Resources;
@@ -13,15 +16,15 @@ namespace WebApplication1.Controllers
     public class MessagesController : ControllerBase
     {
         private readonly IMessageService _messageService;
+        private readonly IWebHostEnvironment _environment;
 
-        public MessagesController(IMessageService messageService)
+        public MessagesController(IMessageService messageService, IWebHostEnvironment environment)
         {
             _messageService = messageService;
+            _environment = environment;
         }
 
-        
-
-    [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> SendMessage([FromBody] MessageDto messageDto)
         {
             try
@@ -48,12 +51,12 @@ namespace WebApplication1.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
-        public async Task<IActionResult> GetMessages(int userId)
+        [HttpGet("GetMessagesBYId/{userId}")]
+        public async Task<IActionResult> GetMessagesBYId(int userId)
         {
             try
             {
-                var messages = await _messageService.GetMessagesForUser(userId);
+                var messages = await _messageService.GetMessagesBYId(userId);
                 return Ok(messages);
             }
             catch (Exception ex)
@@ -62,6 +65,7 @@ namespace WebApplication1.Controllers
                 return StatusCode(500, "Failed to retrieve messages. Please try again later.");
             }
         }
+
         [HttpGet("{userId1}/{userId2}")]
         public async Task<IActionResult> GetMessagesBetweenUsers(int userId1, int userId2)
         {
@@ -83,6 +87,76 @@ namespace WebApplication1.Controllers
 
             return Ok(resources);
         }
+
+        [HttpGet("GetSendersByReceiverId/{receiverId}")]
+        public async Task<IActionResult> GetSendersByReceiverId(int receiverId)
+        {
+            try
+            {
+                var senders = await _messageService.GetSendersByReceiverId(receiverId);
+                return Ok(senders);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving senders: {ex.Message}");
+                return StatusCode(500, "Failed to retrieve senders. Please try again later.");
+            }
+        }
+
+        [HttpDelete("DeleteMessage/{id}")]
+        public async Task<IActionResult> DeleteMessage(int id)
+        {
+            var isDelete = await _messageService.DeleteMessage(id);
+            if (isDelete)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPut("UpdateMessage/{id}")]
+        public async Task<IActionResult> UpdateMessage(Message message, int id)
+        {
+            var updatemessage = await _messageService.UpdateMessage(message, id);
+            if (updatemessage != null)
+            {
+                var res = new MessageResource
+                {
+                    Content = updatemessage.Content,
+                };
+                return Ok(res);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        [HttpPost("UploadImage")]
+        public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("File is empty.");
+            }
+
+            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+
+            var imageUrl = Path.Combine("uploads", uniqueFileName);
+            return Ok(new { ImageUrl = imageUrl });
+        }
+
+
+
+
     }
 }
-

@@ -15,6 +15,7 @@ using WebApplication1.Service.Student;
 using WebApplication1.Services.Dijkstra;
 using WebApplication1.Service.Probosal;
 using WebApplication1.Service.OfficeHour;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace WebApplication1
 {
@@ -29,6 +30,20 @@ namespace WebApplication1
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<FormOptions>(options =>
+            {
+                options.MultipartBodyLengthLimit = 52428800; // 50 MB
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("https://your-client-url")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod());
+            });
+
+            services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -46,6 +61,11 @@ namespace WebApplication1
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddHttpContextAccessor();
             services.AddControllersWithViews();
+
+            // Register IWebHostEnvironment
+            services.AddSingleton(env => (IWebHostEnvironment)env.GetRequiredService(typeof(IWebHostEnvironment)));
+            services.AddControllers();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -67,12 +87,24 @@ namespace WebApplication1
 
             app.UseAuthorization();
 
+            // Ensure the 'uploads' folder exists in 'wwwroot'
+            var uploadsPath = Path.Combine(env.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsPath))
+            {
+                Directory.CreateDirectory(uploadsPath);
+            }
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "messages",
                     pattern: "api/messages/{action}/{id?}", // Adjust pattern as needed
                     defaults: new { controller = "Messages" }); // Assuming your controller is named MessagesController
+
+                endpoints.MapControllerRoute(
+                    name: "uploadImage",
+                    pattern: "api/uploadImage", // Adjust pattern as needed
+                    defaults: new { controller = "Messages", action = "UploadImage" }); // Assuming your action is named UploadImage
 
                 // Other endpoint mappings...
 
@@ -81,5 +113,6 @@ namespace WebApplication1
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }

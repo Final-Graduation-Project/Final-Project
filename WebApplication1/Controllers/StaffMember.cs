@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Model;
 using WebApplication1.Models;
@@ -26,7 +27,8 @@ public class StaffMember : Controller
         {
             ID=res.TeacherID,
             name = res.Teachername,
-            email=res.Email
+            email=res.Email,
+            LastSeen = res.LastSeen
         };
 
         return Ok(resorce);
@@ -48,6 +50,14 @@ public class StaffMember : Controller
         };
         return Ok(resource);
     }
+    [HttpGet("GetAllStaffMember")]
+    public async Task<IActionResult> GetAllStaffMember()
+    {
+        var tescher= await _staffMemberService.GetAllStaffMember();
+        
+        return Ok(tescher);
+    }
+
 
 
 }

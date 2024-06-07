@@ -15,6 +15,7 @@ namespace WebApplication1.Model
         public string name { get; set; }
         public int phone { get; set; }
         public string universityMajor { get; set; }
-    
-}
+        public DateTime LastSeen { get; set; } // New property
+
+    }
 }

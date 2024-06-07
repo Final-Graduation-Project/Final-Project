@@ -1,12 +1,8 @@
-﻿using System;
-
-namespace WebApplication1.Table
+﻿public class MessageDto
 {
-    public class MessageDto
-    {
-        public int SenderId { get; set; }
-        public int ReceiverId { get; set; }
-        public string Content { get; set; }
-        public DateTime SentAt { get; set; }
-    }
+    public int SenderId { get; set; }
+    public int ReceiverId { get; set; }
+    public string Content { get; set; }
+    public string ImageUrl { get; set; }
+    public DateTime SentAt { get; set; }
 }

@@ -12,11 +12,12 @@ public class Teacher
     private string _confirmPassword;
     private int _phone;
 
-    
+    public DateTime LastSeen { get; set; } // New property
+
     // Navigation property for related entities
     public ICollection<OfficeHour> OfficeHours { get; set; }
 
-    public Teacher(string teachername, int teacherID, string email, string password, string confirmPassword, int phone)
+    public Teacher(string teachername, int teacherID, string email, string password, string confirmPassword, int phone, DateTime lastSeen)
     {
         _teachername = teachername;
         _teacherID = teacherID;
@@ -27,6 +28,8 @@ public class Teacher
 
         // Initialize OfficeHours collection
         OfficeHours = new List<OfficeHour>();
+        LastSeen = lastSeen; // Initialize new property
+
     }
 
     [Required]

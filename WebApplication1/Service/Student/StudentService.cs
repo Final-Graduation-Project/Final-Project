@@ -31,7 +31,7 @@ public class StudentService : IStudentService
     public async Task<Table.Student> AddStudent(studentEntity m)
     {
         var password = BCrypt.Net.BCrypt.HashPassword(m.password);
-       var student = new Table.Student(m.name, m.Id, m.email, password, m.universityMajor, m.phone);
+       var student = new Table.Student(m.name, m.Id, m.email, password, m.universityMajor, m.phone,m.LastSeen);
         _context.Students.Add(student);
 
 

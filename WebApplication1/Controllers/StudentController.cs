@@ -31,7 +31,7 @@ public class StudentController : Controller
         var res =await _studentService.AddStudent(m);
         return Ok(res);
     }
-    [HttpGet("GetStudent")]
+    [HttpGet("GetStudent/{id}")]
     public async Task<IActionResult> GetStudent(int id)
     {
         var res =await _studentService.GetStudent(id);
