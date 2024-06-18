@@ -36,7 +36,8 @@ namespace WebApplication1.Controllers
                         SenderId = messageDto.SenderId,
                         ReceiverId = messageDto.ReceiverId,
                         Content = messageDto.Content,
-                        SentAt = messageDto.SentAt
+                        SentAt = messageDto.SentAt,
+                        ImageUrl = messageDto.ImageUrl
                     };
 
                     var result = await _messageService.SendMessage(message);
@@ -82,7 +83,8 @@ namespace WebApplication1.Controllers
                 SenderId = m.SenderId,
                 ReceiverId = m.ReceiverId,
                 Content = m.Content,
-                TimeSent = m.SentAt
+                TimeSent = m.SentAt,
+                ImageUrl = m.ImageUrl
             });
 
             return Ok(resources);
@@ -106,6 +108,12 @@ namespace WebApplication1.Controllers
         [HttpDelete("DeleteMessage/{id}")]
         public async Task<IActionResult> DeleteMessage(int id)
         {
+            var message = await _messageService.GetMessageById(id);
+            if (message == null)
+            {
+                return NotFound("Message not found.");
+            }
+
             var isDelete = await _messageService.DeleteMessage(id);
             if (isDelete)
             {
@@ -134,29 +142,5 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
         }
-        [HttpPost("UploadImage")]
-        public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-            {
-                return BadRequest("File is empty.");
-            }
-
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
-
-            var imageUrl = Path.Combine("uploads", uniqueFileName);
-            return Ok(new { ImageUrl = imageUrl });
-        }
-
-
-
-
     }
 }

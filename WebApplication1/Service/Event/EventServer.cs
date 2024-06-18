@@ -1,26 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using WebApplication1.Controllers;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplication1.Models;
 using WebApplication1.Table;
-using System.Collections.Generic;
+using WebApplication1.Model;
 
 
-
-namespace WebApplication1.Services.Event;
-
+namespace WebApplication1.Services.Event
+{
     public interface IEventServer
     {
-        Task<Table.EventEntity> AddEvent(EventAddEntitycs m);
-
-    Task<List<EventEntity>> GitAllEvent();
-
-    Task<Table.EventEntity> GitEvent(string EntityResponsibleActivity);
-
-    Task<EventEntity> UpdateEvent(EventAddEntitycs m,int evintid);
-    Task<bool> DeleteEvent(int eventId);
-
-
+        Task<EventEntity> AddEvent(EventAddEntitycs m);
+        Task<List<EventEntity>> GetAllEvent();
+        Task<EventEntity> GetEvent(string EntityResponsibleActivity);
+        Task<EventEntity> UpdateEvent(EventAddEntitycs m, int eventId);
+        Task<bool> DeleteEvent(int eventId);
     }
 
     public class EventServer : IEventServer
@@ -34,27 +28,22 @@ namespace WebApplication1.Services.Event;
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<Table.EventEntity> AddEvent(EventAddEntitycs m)
+        public async Task<EventEntity> AddEvent(EventAddEntitycs m)
         {
-            var Event = new Table.EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime,
-                m.time, m.EntityResponsibleActivity, m.concilMemberID, m.imagePath);
-            _context.Events.Add(Event);
+            var eventEntity = new EventEntity(m.ActivityID, m.ActivityName, m.LocationOfActivity, m.ActivityExecutionTime, m.Time, m.EntityResponsibleActivity, m.ConcilMemberID, m.ImagePath);
+            _context.Events.Add(eventEntity);
             await _context.SaveChangesAsync();
-            return Event;
-
+            return eventEntity;
         }
 
-        public async Task<List<EventEntity>> GitAllEvent()
+        public async Task<List<EventEntity>> GetAllEvent()
         {
             return await _context.Events.ToListAsync();
         }
 
-        public async Task<Table.EventEntity> GitEvent(string name_of_the_committee)
-
+        public async Task<EventEntity> GetEvent(string EntityResponsibleActivity)
         {
-            var Event = await _context.Events.FirstOrDefaultAsync(x =>
-                x.EntityResponsibleActivity == name_of_the_committee);
-            return Event;
+            return await _context.Events.FirstOrDefaultAsync(x => x.EntityResponsibleActivity == EntityResponsibleActivity);
         }
 
         public async Task<bool> DeleteEvent(int eventId)
@@ -80,15 +69,13 @@ namespace WebApplication1.Services.Event;
             existingEvent.ActivityID = m.ActivityID;
             existingEvent.LocationOfActivity = m.LocationOfActivity;
             existingEvent.ActivityExecutionTime = m.ActivityExecutionTime;
-            existingEvent.time = m.time;
+            existingEvent.Time = m.Time;
             existingEvent.EntityResponsibleActivity = m.EntityResponsibleActivity;
-            existingEvent.ConcilMemberID = m.concilMemberID;
+            existingEvent.ConcilMemberID = m.ConcilMemberID;
+            existingEvent.ImagePath = m.ImagePath;
 
             await _context.SaveChangesAsync();
             return existingEvent;
         }
-    
-
-
     }
-
+}

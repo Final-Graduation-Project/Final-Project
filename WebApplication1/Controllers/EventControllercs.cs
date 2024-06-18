@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using WebApplication1.Models;
 using WebApplication1.Resorces;
 using WebApplication1.Services.Event;
 using WebApplication1.Table;
-
 
 namespace WebApplication1.Controllers
 {
@@ -28,58 +28,78 @@ namespace WebApplication1.Controllers
                 EventId = res.ActivityID,
                 Location = res.LocationOfActivity,
                 ExecutionTime = res.ActivityExecutionTime,
-                time = res.time,
+                Time = res.Time, // Ensure this is DateTime
                 ResponsibleActivity = res.EntityResponsibleActivity,
                 StudentID = res.ConcilMemberID,
             };
             return Ok(resource);
         }
 
+        [HttpGet("GetAllEvent")]
+        public async Task<IActionResult> GetAllEvent()
+        {
+            var res = await _eventServer.GetAllEvent();
+            List<Event> model = new List<Event>();
+            foreach (var item in res)
+            {
+                var detale = new Event
+                {
+                    ActivityID = item.ActivityID,
+                    ActivityName = item.ActivityName,
+                    LocationOfActivity = item.LocationOfActivity,
+                    ActivityExecutionTime = item.ActivityExecutionTime,
+                    Time = item.Time,
+                    EntityResponsibleActivity = item.EntityResponsibleActivity,
+                    ImagePath = item.ImagePath,
+                    ConcilMemberID = item.ConcilMemberID,
+                    
+                };
+                model.Add(detale);
 
-        [HttpGet("GitAllEvent")]
-        public async Task<IActionResult> GitAllEvent()
-        {
-            var res = await _eventServer.GitAllEvent();
-            return Ok(res);
+            }
+            return Ok(model);
         }
 
-        [HttpGet("GitEvent")]
-        public async Task<IActionResult> GitEvent(string name_of_the_committee)
+        [HttpGet("GetEvent")]
+        public async Task<IActionResult> GetEvent(string EntityResponsibleActivity)
         {
-            var res = await _eventServer.GitEvent(name_of_the_committee);
-            return Ok(res);
-        }
-    
-    [HttpDelete("DeleteEvent/{eventId}")]
-    public async Task<IActionResult> DeleteEvent(int eventId)
-    {
-        var isDeleted = await _eventServer.DeleteEvent(eventId);
 
-        if (isDeleted)
-        {
-            return NoContent(); 
+            var res = await _eventServer.GetEvent(EntityResponsibleActivity);
+           
+                        return Ok(res);
+
         }
-        else
+
+        [HttpDelete("DeleteEvent/{eventId}")]
+        public async Task<IActionResult> DeleteEvent(int eventId)
         {
-            return NotFound(); 
+            var isDeleted = await _eventServer.DeleteEvent(eventId);
+
+            if (isDeleted)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
-    }
+
         [HttpPut("UpdateEvent")]
-        public async Task<IActionResult> UpdateEvent( [FromBody] EventAddEntitycs updateEvent,int id)
+        public async Task<IActionResult> UpdateEvent([FromBody] EventAddEntitycs updateEvent, int id)
         {
-            var updateevent = await _eventServer.UpdateEvent( updateEvent,id);
-            if (updateevent != null)
+            var updatedEvent = await _eventServer.UpdateEvent(updateEvent, id);
+            if (updatedEvent != null)
             {
                 var res = new EventResource
                 {
-                    Name = updateevent.ActivityName,
-                    EventId = updateevent.ActivityID,
-                    Location = updateevent.LocationOfActivity,
-                    ExecutionTime = updateevent.ActivityExecutionTime,
-                    time = updateevent.time,
-                    ResponsibleActivity = updateevent.EntityResponsibleActivity,
-                    StudentID = updateevent.ConcilMemberID,
-
+                    Name = updatedEvent.ActivityName,
+                    EventId = updatedEvent.ActivityID,
+                    Location = updatedEvent.LocationOfActivity,
+                    ExecutionTime = updatedEvent.ActivityExecutionTime,
+                    Time = updatedEvent.Time, // Ensure this is DateTime
+                    ResponsibleActivity = updatedEvent.EntityResponsibleActivity,
+                    StudentID = updatedEvent.ConcilMemberID,
                 };
                 return Ok(res);
             }
@@ -88,7 +108,7 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
         }
-}
-}
+        
+    }
 
-
+}

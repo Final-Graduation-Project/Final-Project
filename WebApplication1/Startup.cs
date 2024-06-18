@@ -16,6 +16,7 @@ using WebApplication1.Services.Dijkstra;
 using WebApplication1.Service.Probosal;
 using WebApplication1.Service.OfficeHour;
 using Microsoft.AspNetCore.Http.Features;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -38,7 +39,7 @@ namespace WebApplication1
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.WithOrigins("https://your-client-url")
+                    builder => builder.WithOrigins("http://localhost:3000", "https://your-client-url")
                                       .AllowAnyHeader()
                                       .AllowAnyMethod());
             });
@@ -52,20 +53,19 @@ namespace WebApplication1
             services.AddTransient<IEventServer, EventServer>();
             services.AddTransient<IconcilMemberService, concilMemberService>();
             services.AddTransient<IDijkstraService, DijkstraService>();
-            services.AddTransient<IProbosalService, ProbosalService>();
+            services.AddTransient<IProposalService, ProposalService>();
             services.AddTransient<IOfficeHour, OfficeHourServer>();
+            services.AddTransient<INewsService, NewsService>();
 
-            // Register messaging service
+
             services.AddTransient<IMessageService, MessageService>();
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddHttpContextAccessor();
             services.AddControllersWithViews();
 
-            // Register IWebHostEnvironment
             services.AddSingleton(env => (IWebHostEnvironment)env.GetRequiredService(typeof(IWebHostEnvironment)));
             services.AddControllers();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -85,9 +85,11 @@ namespace WebApplication1
 
             app.UseRouting();
 
+            app.UseCors("AllowSpecificOrigin");
+
+            // app.UseAuthentication(); // Uncomment if you have authentication
             app.UseAuthorization();
 
-            // Ensure the 'uploads' folder exists in 'wwwroot'
             var uploadsPath = Path.Combine(env.WebRootPath, "uploads");
             if (!Directory.Exists(uploadsPath))
             {
@@ -98,21 +100,18 @@ namespace WebApplication1
             {
                 endpoints.MapControllerRoute(
                     name: "messages",
-                    pattern: "api/messages/{action}/{id?}", // Adjust pattern as needed
-                    defaults: new { controller = "Messages" }); // Assuming your controller is named MessagesController
+                    pattern: "api/messages/{action}/{id?}",
+                    defaults: new { controller = "Messages" });
 
                 endpoints.MapControllerRoute(
                     name: "uploadImage",
-                    pattern: "api/uploadImage", // Adjust pattern as needed
-                    defaults: new { controller = "Messages", action = "UploadImage" }); // Assuming your action is named UploadImage
-
-                // Other endpoint mappings...
+                    pattern: "api/uploadImage",
+                    defaults: new { controller = "Messages", action = "UploadImage" });
 
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
-
     }
 }

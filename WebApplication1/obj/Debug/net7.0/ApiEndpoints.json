@@ -159,8 +159,8 @@
   },
   {
     "ContainingType": "WebApplication1.Controllers.EventControllercs",
-    "Method": "GitAllEvent",
-    "RelativePath": "api/EventControllercs/GitAllEvent",
+    "Method": "GetAllEvent",
+    "RelativePath": "api/EventControllercs/GetAllEvent",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -169,14 +169,14 @@
   },
   {
     "ContainingType": "WebApplication1.Controllers.EventControllercs",
-    "Method": "GitEvent",
-    "RelativePath": "api/EventControllercs/GitEvent",
+    "Method": "GetEvent",
+    "RelativePath": "api/EventControllercs/GetEvent",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name_of_the_committee",
+        "Name": "EntityResponsibleActivity",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -311,45 +311,123 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.MessagesController",
-    "Method": "UploadImage",
-    "RelativePath": "api/Messages/UploadImage",
+    "ContainingType": "WebApplication1.Controllers.NewsController",
+    "Method": "AddNews",
+    "RelativePath": "api/News/AddNews",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "ContentType",
-        "Type": "System.String",
-        "IsRequired": false
-      },
+        "Name": "newsDto",
+        "Type": "NewsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
       {
-        "Name": "ContentDisposition",
-        "Type": "System.String",
-        "IsRequired": false
-      },
+        "Type": "WebApplication1.Table.News",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.NewsController",
+    "Method": "DeleteNews",
+    "RelativePath": "api/News/DeletNews{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "Headers",
-        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
-        "IsRequired": false
-      },
-      {
-        "Name": "Length",
-        "Type": "System.Int64",
-        "IsRequired": false
-      },
-      {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "FileName",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.NewsController",
+    "Method": "GetAllNews",
+    "RelativePath": "api/News/GetAllNews",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication1.Table.News, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.NewsController",
+    "Method": "GetNewsById",
+    "RelativePath": "api/News/GetNewsById{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebApplication1.Table.News",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.NewsController",
+    "Method": "UpdateNews",
+    "RelativePath": "api/News/UpdateNews{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "news",
+        "Type": "WebApplication1.Table.News",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebApplication1.Table.News",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "WebApplication1.Controllers.OfficeHourController",
@@ -421,25 +499,41 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.ProbosalController",
-    "Method": "AddPRobosal",
-    "RelativePath": "api/Probosal/AddProbosal",
-    "HttpMethod": "POST",
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "AcceptProposal",
+    "RelativePath": "api/Proposal/AcceptProposal/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "m",
-        "Type": "WebApplication1.Model.ProbosalEntity",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.ProbosalController",
-    "Method": "DeleteProbosal",
-    "RelativePath": "api/Probosal/DeleteProbosal",
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "AddProposal",
+    "RelativePath": "api/Proposal/AddProposal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "proposalEntity",
+        "Type": "WebApplication1.Model.ProposalEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "DeleteProposal",
+    "RelativePath": "api/Proposal/DeleteProposal/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -447,28 +541,70 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.ProbosalController",
-    "Method": "UpdateProbosal",
-    "RelativePath": "api/Probosal/UpdateProbosal",
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "GetAcceptedProposals",
+    "RelativePath": "api/Proposal/GetAcceptedProposals",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "GetAcceptedProposalsByUserId",
+    "RelativePath": "api/Proposal/GetAcceptedProposalsByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "GetUnacceptedProposalsByCommittee",
+    "RelativePath": "api/Proposal/GetUnacceptedProposalsByCommittee/{committee}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "committee",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "UpdateProposal",
+    "RelativePath": "api/Proposal/UpdateProposal/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "m",
-        "Type": "WebApplication1.Model.ProbosalEntity",
+        "Name": "proposalEntity",
+        "Type": "WebApplication1.Model.ProposalEntity",
         "IsRequired": true
       },
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

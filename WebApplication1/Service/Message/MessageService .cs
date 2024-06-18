@@ -14,6 +14,8 @@ namespace WebApplication1.Services
         Task<List<Message>> GetMessagesBYId(int userId);
         Task<IEnumerable<Message>> GetMessagesBetweenUsers(int userId1, int userId2);
         Task<List<int>> GetSendersByReceiverId(int receiverId);
+        Task<Message> GetMessageById(int id);
+
 
         Task<bool> DeleteMessage(int id);
 
@@ -105,14 +107,14 @@ namespace WebApplication1.Services
     }
         public async Task<bool> DeleteMessage(int id)
         {
-            var messagedel= await _context.Messages.FindAsync(id);
-            if (messagedel == null)
+            var message = await _context.Messages.FindAsync(id);
+            if (message == null)
             {
                 return false;
             }
-            _context.Messages.Remove(messagedel);
-            await _context.SaveChangesAsync();
 
+            _context.Messages.Remove(message);
+            await _context.SaveChangesAsync();
             return true;
         }
         public async Task<Message> UpdateMessage(Message message,int id)
@@ -126,6 +128,10 @@ namespace WebApplication1.Services
             await _context.SaveChangesAsync();
             return update;
         }
+        public async Task<Message> GetMessageById(int id)
+        {
+            return await _context.Messages.FindAsync(id);
         }
+    }
 
 }
