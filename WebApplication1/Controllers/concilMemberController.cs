@@ -91,4 +91,18 @@ public class concilMemberController : Controller
 
         return Ok(resources);
     }
+    [HttpPut("ChangePassword")]
+    public async Task<IActionResult> ChangePassword(int id, string oldPassword, string newPassword)
+    {
+        string change = await _IconcilMemberService.changepassword(id, oldPassword, newPassword);
+        if (change == "Password Changed Successfully")
+        {
+            return Ok(change);
+        }
+        else
+        {
+            return BadRequest(change);
+        }
+    }
+
 }

@@ -9,7 +9,7 @@ using WebApplication1.Services.Event;
 using WebApplication1.Services;
 using WebApplication1.map;
 using WebApplication1.Service.concilMember;
-using WebApplication1.Service.EmailConfirmation;
+using WebApplication1.Service.EmailService;
 using WebApplication1.Service.StaffMembers;
 using WebApplication1.Service.Student;
 using WebApplication1.Services.Dijkstra;
@@ -56,11 +56,13 @@ namespace WebApplication1
             services.AddTransient<IProposalService, ProposalService>();
             services.AddTransient<IOfficeHour, OfficeHourServer>();
             services.AddTransient<INewsService, NewsService>();
+            services.AddTransient<IStudentService, StudentService>();
+            services.AddTransient<IEmailService,EmailService>();
+
 
 
             services.AddTransient<IMessageService, MessageService>();
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
-            services.AddTransient<IEmailSender, EmailSender>();
             services.AddHttpContextAccessor();
             services.AddControllersWithViews();
 

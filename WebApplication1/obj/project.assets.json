@@ -1178,6 +1178,19 @@
           }
         }
       },
+      "RestSharp/111.3.1-alpha.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Scrutor/4.2.2": {
         "type": "package",
         "dependencies": {
@@ -3398,6 +3411,31 @@
         "ninject.nuspec"
       ]
     },
+    "RestSharp/111.3.1-alpha.0.5": {
+      "sha512": "vCsHdPXXGAlYj7Z3razDi+hh47xOvGOJY1shMMj6SP7xXW204xK6b2VUZXWH3Ma2saQFQSGpx+M0HApOxj+TZw==",
+      "type": "package",
+      "path": "restsharp/111.3.1-alpha.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net471/RestSharp.dll",
+        "lib/net471/RestSharp.xml",
+        "lib/net48/RestSharp.dll",
+        "lib/net48/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/net7.0/RestSharp.dll",
+        "lib/net7.0/RestSharp.xml",
+        "lib/net8.0/RestSharp.dll",
+        "lib/net8.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.111.3.1-alpha.0.5.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
+      ]
+    },
     "Scrutor/4.2.2": {
       "sha512": "t5VIYA7WJXoJJo7s4DoHakMGwTu+MeEnZumMOhTCH7kz9xWha24G7dJNxWrHPlu0ZdZAS4jDZCxxAnyaBh7uYw==",
       "type": "package",
@@ -5144,6 +5182,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0-*",
       "Microsoft.IdentityModel.JsonWebTokens >= 7.4.0",
       "Ninject >= 3.3.6",
+      "RestSharp >= 111.3.1-alpha.0.5",
       "Scrutor >= 4.2.2",
       "SendGrid >= 9.29.2",
       "Swashbuckle.AspNetCore >= 6.5.0",
@@ -5151,19 +5190,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\EasyLife\\.nuget\\packages\\": {}
+    "C:\\Users\\twitter\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
-      "packagesPath": "C:\\Users\\EasyLife\\.nuget\\packages\\",
-      "outputPath": "D:\\project_node_js\\Final-Project\\WebApplication1\\obj\\",
+      "projectPath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\twitter\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\EasyLife\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\twitter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5171,6 +5210,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.317\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5183,11 +5223,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5232,6 +5267,10 @@
             "target": "Package",
             "version": "[3.3.6, )"
           },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[111.3.1-alpha.0.5, )"
+          },
           "Scrutor": {
             "target": "Package",
             "version": "[4.2.2, )"
@@ -5268,7 +5307,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.317\\RuntimeIdentifierGraph.json"
       }
     }
   }

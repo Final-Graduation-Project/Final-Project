@@ -10,9 +10,10 @@ namespace WebApplication1.Service.concilMember
     {
         Task<studentConcilMember> AddConcilmember(concilMemberEntity m);
         Task<studentConcilMember> UpdateConcilmember(concilMemberEntity m);
-        Task<studentConcilMember> GetConcilMemberById(int id); // Existing method
-        Task<IEnumerable<studentConcilMember>> GetAllConcilMembers(); // New method
+        Task<studentConcilMember> GetConcilMemberById(int id); 
+        Task<IEnumerable<studentConcilMember>> GetAllConcilMembers(); 
         void setsessionvalue(studentConcilMember concilMember);
+        Task<string> changepassword(int id, string oldpassword, string newpassword);
     }
 
     public class concilMemberService : IconcilMemberService
@@ -70,5 +71,20 @@ namespace WebApplication1.Service.concilMember
             _httpContextAccessor.HttpContext.Session.SetString("Role", concilMember.EntityResponsibleActivity);
             _httpContextAccessor.HttpContext.Session.SetString("LastSeen", concilMember.LastSeen.ToString()); // Store last seen
         }
+        public async Task<string> changepassword(int id, string oldpassword, string newpassword)
+        {
+            var student = await _context.studentConcilMembers.FindAsync(id);
+            if (student.password==oldpassword)
+            {
+                student.password = newpassword;
+                _context.SaveChangesAsync();
+                return "Password Changed Successfully";
+            }
+            else
+            {
+                return "old password wrong";
+            }
+        }
     }
+    
 }

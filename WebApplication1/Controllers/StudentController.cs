@@ -1,3 +1,4 @@
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -141,6 +142,20 @@ public class StudentController : Controller
     {
         _studentService.logout();
         return Ok("Logout Success");
+    }
+
+    [HttpPut("ChangePassword")]
+    public async Task<IActionResult> ChangePassword(int id, string oldPassword, string newPassword)
+    {
+        string change = await _studentService.changepassword(id, oldPassword, newPassword);
+        if (change == "Password Changed Successfully")
+        {
+            return Ok(change);
+        }
+        else
+        {
+            return BadRequest(change);
+        }
     }
    
  
