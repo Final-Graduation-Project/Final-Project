@@ -31,10 +31,10 @@ namespace WebApplication1.Service.EmailService
             {
                 // Create campaign content
                 var emailFrom = "z.j.masalma@gmail.com";
-                var emailFromName = "Your Name";
-                var emailSubject = "Subject of the Campaign";
-                var emailBodyHtml = $"<p>Body of the Campaign with token: {token}</p>";
-                var emailBodyText = $"Body of the Campaign with token: {token}";
+                var emailFromName = "student digital guide";
+                var emailSubject = "Confirmation email";
+                var emailBodyHtml = $"<p>use this code to confirm your sing up in student digital guide : {token}</p>";
+                var emailBodyText = $"use this code to confirm your sing up in student digital guide: {token}";
 
                 // Send the email
                 var request = new RestRequest("messages", Method.Post);

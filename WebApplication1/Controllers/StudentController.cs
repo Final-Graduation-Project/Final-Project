@@ -157,6 +157,18 @@ public class StudentController : Controller
             return BadRequest(change);
         }
     }
-   
+   [HttpPut("forgetpassword")]
+   public async Task<IActionResult> ChangePassword(int id,  string newPassword)
+   {
+       string change = await _studentService.forgetpassword(id, newPassword);
+       if (change == "Password Changed Successfully")
+       {
+           return Ok(change);
+       }
+       else
+       {
+           return BadRequest(change);
+       }
+   }
  
 }

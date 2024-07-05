@@ -71,7 +71,7 @@ public class StaffMemberService : IStaffMemberService
         {
             string newpasswordhash = BCrypt.Net.BCrypt.HashPassword(newpassword);
             teacher.Password = newpasswordhash;
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return "Password Changed Successfully";
         }
         else

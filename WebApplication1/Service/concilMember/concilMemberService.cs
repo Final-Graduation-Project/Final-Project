@@ -77,7 +77,7 @@ namespace WebApplication1.Service.concilMember
             if (student.password==oldpassword)
             {
                 student.password = newpassword;
-                _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
                 return "Password Changed Successfully";
             }
             else
