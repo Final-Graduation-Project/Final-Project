@@ -52,6 +52,52 @@ namespace WebApplication1.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("WebApplication1.Model.Proposal", b =>
+                {
+                    b.Property<int>("ProposalID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProposalID"));
+
+                    b.Property<bool>("Accepted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CommentText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Committee")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VotedUsers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Votes")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProposalID");
+
+                    b.ToTable("Proposals");
+                });
+
             modelBuilder.Entity("WebApplication1.Table.EventEntity", b =>
                 {
                     b.Property<int>("ActivityID")
@@ -150,48 +196,6 @@ namespace WebApplication1.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("OfficeHours");
-                });
-
-            modelBuilder.Entity("WebApplication1.Table.Proposal", b =>
-                {
-                    b.Property<int>("ProposalID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProposalID"));
-
-                    b.Property<bool>("Accepted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CommentText")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Committee")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OptionText")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Question")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Votes")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProposalID");
-
-                    b.ToTable("Proposals");
                 });
 
             modelBuilder.Entity("WebApplication1.Table.Student", b =>

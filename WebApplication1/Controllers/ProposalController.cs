@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Model;
-using WebApplication1.Table;
 using WebApplication1.Service.Probosal;
 using WebApplication1.Resources;
+using Microsoft.Extensions.Logging;
 
 namespace WebApplication1.Controllers
 {
@@ -12,10 +13,12 @@ namespace WebApplication1.Controllers
     public class ProposalController : ControllerBase
     {
         private readonly IProposalService _proposalService;
+        private readonly ILogger<ProposalController> _logger;
 
-        public ProposalController(IProposalService proposalService)
+        public ProposalController(IProposalService proposalService, ILogger<ProposalController> logger)
         {
             _proposalService = proposalService;
+            _logger = logger;
         }
 
         [HttpPost("AddProposal")]
@@ -78,8 +81,7 @@ namespace WebApplication1.Controllers
             return NotFound(new { message = "Proposal not found" });
         }
 
-
-       [HttpGet("GetAcceptedProposalsByUserId/{userId}")]
+        [HttpGet("GetAcceptedProposalsByUserId/{userId}")]
         public async Task<IActionResult> GetAcceptedProposalsByUserId(int userId)
         {
             var proposals = await _proposalService.GetAcceptedProposalsByUserId(userId);
@@ -114,6 +116,7 @@ namespace WebApplication1.Controllers
 
             return Ok(resources);
         }
+
         [HttpGet("GetUnacceptedProposalsByCommittee/{committee}")]
         public async Task<IActionResult> GetUnacceptedProposalsByCommittee(string committee)
         {
@@ -132,5 +135,61 @@ namespace WebApplication1.Controllers
             return Ok(resources);
         }
 
+        // إضافة أسلوب لإضافة التعليق
+        [HttpPost("AddComment")]
+        public async Task<IActionResult> AddComment(CommentResource commentResource)
+        {
+            _logger.LogInformation("Received AddComment request: ProposalID = {ProposalID}, Comment = {Comment}", commentResource.ProposalID, commentResource.Comment);
+            try
+            {
+                var isAdded = await _proposalService.AddComment(commentResource.ProposalID, commentResource.Comment);
+                if (isAdded)
+                {
+                    return Ok(new { message = "Comment added successfully" });
+                }
+                return NotFound(new { message = "Proposal not found" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding comment");
+                return StatusCode(500, new { message = "Internal server error" });
+            }
+        }
+
+        // إضافة أسلوب لإضافة التصويت
+        [HttpPost("AddVote")]
+        public async Task<IActionResult> AddVote(VoteResource voteResource)
+        {
+            _logger.LogInformation("Received AddVote request: ProposalID = {ProposalID}, Option = {Option}, UserID = {UserID}", voteResource.ProposalID, voteResource.Option, voteResource.UserID);
+            try
+            {
+                var isAdded = await _proposalService.AddVote(voteResource.ProposalID, voteResource.Option, voteResource.UserID);
+                if (isAdded)
+                {
+                    return Ok(new { message = "Vote added successfully" });
+                }
+                return Conflict(new { message = "User has already voted" }); // تعارض إذا كان المستخدم قد صوت بالفعل
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding vote");
+                return StatusCode(500, new { message = "Internal server error" });
+            }
+        }
     }
+    public class VoteResource
+    {
+        public int ProposalID { get; set; }
+        public string Option { get; set; }
+        public int UserID { get; set; } // إضافة userId إلى الموارد
+    }
+
+
+
+    public class CommentResource
+    {
+        public int ProposalID { get; set; }
+        public string Comment { get; set; }
+    }
+
 }

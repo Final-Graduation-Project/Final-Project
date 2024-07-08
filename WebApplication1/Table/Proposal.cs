@@ -1,8 +1,10 @@
-﻿    
-namespace WebApplication1.Table
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication1.Model
 {
     public class Proposal
     {
+        [Key]
         public int ProposalID { get; set; }
         public string Type { get; set; }
         public string Question { get; set; }
@@ -12,5 +14,6 @@ namespace WebApplication1.Table
         public int UserID { get; set; }
         public string OptionText { get; set; }
         public string CommentText { get; set; }
+        public string VotedUsers { get; set; } // إضافة الحقل الجديد
     }
 }

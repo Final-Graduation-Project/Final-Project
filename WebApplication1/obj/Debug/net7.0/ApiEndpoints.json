@@ -516,6 +516,22 @@
   },
   {
     "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "AddComment",
+    "RelativePath": "api/Proposal/AddComment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentResource",
+        "Type": "WebApplication1.Controllers.CommentResource",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
     "Method": "AddProposal",
     "RelativePath": "api/Proposal/AddProposal",
     "HttpMethod": "POST",
@@ -525,6 +541,22 @@
       {
         "Name": "proposalEntity",
         "Type": "WebApplication1.Model.ProposalEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.ProposalController",
+    "Method": "AddVote",
+    "RelativePath": "api/Proposal/AddVote",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voteResource",
+        "Type": "WebApplication1.Controllers.VoteResource",
         "IsRequired": true
       }
     ],

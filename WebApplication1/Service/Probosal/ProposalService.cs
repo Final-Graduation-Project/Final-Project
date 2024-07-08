@@ -1,7 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Model;
 using WebApplication1.Table;
+using Microsoft.Extensions.Logging;
 
 namespace WebApplication1.Service.Probosal
 {
@@ -13,23 +16,23 @@ namespace WebApplication1.Service.Probosal
         Task<bool> AcceptProposal(int proposalId);
         void SetSessionValue(Proposal proposal);
         Task<List<Proposal>> GetAcceptedProposals();
-        Task<List<Proposal>> GetAcceptedProposalsByUserId(int userId); // تعديل الاسم
-        Task<List<Proposal>> GetUnacceptedProposalsByCommittee(string committee); // تعريف الميثود الجديدة
-
-
-
-
+        Task<List<Proposal>> GetAcceptedProposalsByUserId(int userId);
+        Task<List<Proposal>> GetUnacceptedProposalsByCommittee(string committee);
+        Task<bool> AddComment(int proposalId, string comment);
+        Task<bool> AddVote(int proposalId, string option, int userId);
     }
 
     public class ProposalService : IProposalService
     {
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILogger<ProposalService> _logger;
 
-        public ProposalService(AppDbContext context, IHttpContextAccessor httpContextAccessor)
+        public ProposalService(AppDbContext context, IHttpContextAccessor httpContextAccessor, ILogger<ProposalService> logger)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
         }
 
         public async Task<Proposal> AddProposal(ProposalEntity m)
@@ -43,7 +46,8 @@ namespace WebApplication1.Service.Probosal
                 Accepted = false,
                 UserID = m.UserID,
                 OptionText = m.OptionText,
-                CommentText = m.CommentText
+                CommentText = m.CommentText,
+                VotedUsers = ""
             };
 
             _context.Proposals.Add(proposal);
@@ -97,23 +101,104 @@ namespace WebApplication1.Service.Probosal
             _httpContextAccessor.HttpContext.Session.SetString("Description", proposal.Question);
             _httpContextAccessor.HttpContext.Session.SetString("TargetParty", proposal.Committee);
         }
-        
 
         public async Task<List<Proposal>> GetAcceptedProposals()
         {
             return await _context.Proposals.Where(p => p.Accepted).ToListAsync();
         }
+
         public async Task<List<Proposal>> GetAcceptedProposalsByUserId(int userId)
         {
             return await _context.Proposals
                 .Where(p => !p.Accepted && p.UserID == userId)
                 .ToListAsync();
         }
+
         public async Task<List<Proposal>> GetUnacceptedProposalsByCommittee(string committee)
         {
             return await _context.Proposals
                 .Where(p => p.Committee == committee && !p.Accepted)
                 .ToListAsync();
         }
+
+        public async Task<bool> AddComment(int proposalId, string comment)
+        {
+            try
+            {
+                var proposal = await _context.Proposals.FindAsync(proposalId);
+                if (proposal != null)
+                {
+                    if (proposal.CommentText == null)
+                    {
+                        proposal.CommentText = comment;
+                    }
+                    else
+                    {
+                        proposal.CommentText += $";{comment}";
+                    }
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding comment to proposal {ProposalID}", proposalId);
+                return false;
+            }
+        }
+
+        public async Task<bool> AddVote(int proposalId, string option, int userId)
+        {
+            try
+            {
+                var proposal = await _context.Proposals.FindAsync(proposalId);
+                if (proposal != null)
+                {
+                    var votedUsers = proposal.VotedUsers?.Split(';') ?? new string[0];
+                    if (votedUsers.Contains(userId.ToString()))
+                    {
+                        return false; // المستخدم قام بالتصويت بالفعل
+                    }
+
+                    var votes = new Dictionary<string, int>();
+                    if (!string.IsNullOrEmpty(proposal.OptionText))
+                    {
+                        votes = proposal.OptionText.Split(',')
+                            .Where(v => v.Contains(':'))
+                            .Select(v => v.Split(':'))
+                            .ToDictionary(v => v[0], v => int.Parse(v[1]));
+                    }
+
+                    if (votes.ContainsKey(option))
+                    {
+                        votes[option]++;
+                    }
+                    else
+                    {
+                        votes[option] = 1;
+                    }
+
+                    proposal.OptionText = string.Join(",", votes.Select(v => $"{v.Key}:{v.Value}"));
+                    proposal.VotedUsers = string.Join(";", votedUsers.Append(userId.ToString()));
+
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding vote to proposal {ProposalID}", proposalId);
+                return false;
+            }
+        }
+
+
+
+
+
+
+
     }
 }

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Model;
 using WebApplication1.Table;
 
 namespace WebApplication1;
