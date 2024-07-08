@@ -17,6 +17,7 @@ using WebApplication1.Service.concilMember;
 using WebApplication1.Services.Dijkstra;
 using WebApplication1.map;
 using Ninject.Planning.Bindings;
+using WebApplication1.Service.EmailService;
 using WebApplication1.Service.Probosal;
 using WebApplication1.Service.OfficeHour;
 using WebApplication1.Services;
@@ -73,6 +74,7 @@ builder.Services.AddScoped<IProposalService, ProposalService>();
 builder.Services.AddScoped<IOfficeHour, OfficeHourServer>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INewsService, NewsService>();
+builder.Services.AddScoped<IEmailService,EmailService>();
 
 
 

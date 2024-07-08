@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\EasyLife\\.nuget\\packages\\",
-        "outputPath": "D:\\project_node_js\\Final-Project\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\twitter\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\EasyLife\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\twitter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.317\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +35,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -83,6 +79,10 @@
               "target": "Package",
               "version": "[3.3.6, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.3.1-alpha.0.5, )"
+            },
             "Scrutor": {
               "target": "Package",
               "version": "[4.2.2, )"
@@ -119,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.317\\RuntimeIdentifierGraph.json"
         }
       }
     }

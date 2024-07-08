@@ -12,6 +12,8 @@ public interface IStudentService
     void setsessionvalue(Table.Student student);
     public string? GetCurrentLoggedIn();
     public void logout();
+    public Task<string> changepassword(int id , string oldpassword,string newpassword);
+    public Task<string> forgetpassword(int id, string password);
 }
 public class StudentService : IStudentService
 {
@@ -62,5 +64,39 @@ public class StudentService : IStudentService
     public void logout()
     {
         _httpContextAccessor.HttpContext.Session.Clear();
+    }
+
+    public async Task<string> changepassword(int id, string oldpassword, string newpassword)
+    {
+        var student = await _context.Students.FindAsync(id);
+        if (student == null)
+        {
+            return "Student not found";
+        }
+
+        if (BCrypt.Net.BCrypt.Verify(oldpassword, student.Password))
+        {
+            string newPasswordHash = BCrypt.Net.BCrypt.HashPassword(newpassword);
+            student.Password = newPasswordHash;
+            await _context.SaveChangesAsync();
+            return "Password Changed Successfully";
+        }
+        else
+        {
+            return "Old password is incorrect";
+        }
+    }
+
+    public async Task<string> forgetpassword(int id, string password)
+    {
+        var student = await _context.Students.FindAsync(id);
+        if (student==null)
+        {
+            return "student not found";
+        }
+        string newPasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
+        student.Password = newPasswordHash;
+        await _context.SaveChangesAsync();
+        return "Password Changed Successfully";
     }
 }

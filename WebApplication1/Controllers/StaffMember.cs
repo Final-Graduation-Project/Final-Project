@@ -57,6 +57,19 @@ public class StaffMember : Controller
         
         return Ok(tescher);
     }
+    [HttpPut("ChangePassword")]
+    public async Task<IActionResult> ChangePassword(int id, string oldPassword, string newPassword)
+    {
+        string change = await _staffMemberService.changepassword(id, oldPassword, newPassword);
+        if (change == "Password Changed Successfully")
+        {
+            return Ok(change);
+        }
+        else
+        {
+            return BadRequest(change);
+        }
+    }
 
 
 

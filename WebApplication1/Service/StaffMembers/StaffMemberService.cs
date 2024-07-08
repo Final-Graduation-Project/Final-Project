@@ -13,6 +13,7 @@ public interface IStaffMemberService
     Task<IEnumerable<Table.Teacher>> GetAllStaffMember();
     void setsessionvalue(Table.Teacher teacher);
     Task <int> GetStaffMemberId(string name);
+    Task<string> changepassword(int id, string oldpassword, string newpassword);
 }
 
 public class StaffMemberService : IStaffMemberService
@@ -62,6 +63,21 @@ public class StaffMemberService : IStaffMemberService
         _httpContextAccessor.HttpContext.Session.SetString("Role", "teacher");
         _httpContextAccessor.HttpContext.Session.SetString("LastSeen", teacher.LastSeen.ToString()); // Store last seen
 
+    }
+    public async Task<string> changepassword(int id, string oldpassword, string newpassword)
+    {
+        var teacher = await _context.Teachers.FindAsync(id);
+        if (BCrypt.Net.BCrypt.Verify(oldpassword, teacher.Password))
+        {
+            string newpasswordhash = BCrypt.Net.BCrypt.HashPassword(newpassword);
+            teacher.Password = newpasswordhash;
+            await _context.SaveChangesAsync();
+            return "Password Changed Successfully";
+        }
+        else
+        {
+            return "old password wrong";
+        }
     }
 
 }
