@@ -77,7 +77,7 @@ namespace WebApplication1.Controllers
 
             if (isDeleted)
             {
-                return NoContent();
+                return Ok();
             }
             else
             {
