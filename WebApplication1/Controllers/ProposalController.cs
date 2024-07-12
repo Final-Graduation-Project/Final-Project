@@ -93,7 +93,8 @@ namespace WebApplication1.Controllers
                 Committee = p.Committee,
                 UserID = p.UserID,
                 OptionText = p.OptionText,
-                CommentText = p.CommentText
+                CommentText = p.CommentText,
+                name=p.name
             }).ToList();
 
             return Ok(resources);
@@ -111,7 +112,9 @@ namespace WebApplication1.Controllers
                 Committee = p.Committee,
                 UserID = p.UserID,
                 OptionText = p.OptionText,
-                CommentText = p.CommentText
+                CommentText = p.CommentText,
+                name=p.name
+
             }).ToList();
 
             return Ok(resources);
@@ -129,7 +132,8 @@ namespace WebApplication1.Controllers
                 Committee = p.Committee,
                 UserID = p.UserID,
                 OptionText = p.OptionText,
-                CommentText = p.CommentText
+                CommentText = p.CommentText,
+                name=p.name
             }).ToList();
 
             return Ok(resources);

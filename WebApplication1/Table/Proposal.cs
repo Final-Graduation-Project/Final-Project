@@ -15,5 +15,8 @@ namespace WebApplication1.Model
         public string OptionText { get; set; }
         public string CommentText { get; set; }
         public string VotedUsers { get; set; } // إضافة الحقل الجديد
+    
+        public string name { get; set; }
     }
+
 }

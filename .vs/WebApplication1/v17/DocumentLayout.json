@@ -3,56 +3,68 @@
   "WorkspaceRootPath": "D:\\project_node_js\\Final-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\webapplication1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\webapplication1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\staffmembers\\staffmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\staffmembers\\staffmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\probosal\\proposalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\probosal\\proposalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\proposalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\proposalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\proposal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\proposal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\studentconcilmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\studentconcilmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\proposalentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\proposalentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\concilmembercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\concilmembercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\concilmember\\concilmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\concilmember\\concilmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\concilmemberentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\concilmemberentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\studentconcilmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\studentconcilmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\student\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\student\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\proposalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\proposalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\resorces\\proposalresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\resorces\\proposalresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\proposalentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\proposalentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\service\\probosal\\proposalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\service\\probosal\\proposalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\table\\proposal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\table\\proposal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\teacherentitycs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\teacherentitycs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\model\\studententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\studententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|d:\\project_node_js\\final-project\\webapplication1\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FC6692C-6450-4A02-81F5-83C9C52B7E3F}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,162 +85,201 @@
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WebApplication1",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
-              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1.csproj",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\WebApplication1.csproj",
-              "RelativeToolTip": "WebApplication1\\WebApplication1.csproj",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAswCMAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-07T22:06:51.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "studentConcilMember.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\studentConcilMember.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Table\\studentConcilMember.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\studentConcilMember.cs",
-              "RelativeToolTip": "WebApplication1\\Table\\studentConcilMember.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T16:12:48.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "concilMemberController.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\concilMemberController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\concilMemberController.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\concilMemberController.cs",
-              "RelativeToolTip": "WebApplication1\\Controllers\\concilMemberController.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAkwEcAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T16:10:49.667Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "concilMemberEntity.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\concilMemberEntity.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Model\\concilMemberEntity.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\concilMemberEntity.cs",
-              "RelativeToolTip": "WebApplication1\\Model\\concilMemberEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T16:10:47.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Startup.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Startup.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Startup.cs",
-              "RelativeToolTip": "WebApplication1\\Startup.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwDsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:18:20.878Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "WebApplication1\\Program.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAEcAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:18:05.741Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Student.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Student.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Table\\Student.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Student.cs",
-              "RelativeToolTip": "WebApplication1\\Table\\Student.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:14:33.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ProposalResource.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Resorces\\ProposalResource.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Resorces\\ProposalResource.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Resorces\\ProposalResource.cs",
-              "RelativeToolTip": "WebApplication1\\Resorces\\ProposalResource.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:09:53.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "ProposalController.cs",
               "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\ProposalController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ProposalController.cs",
               "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\ProposalController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\ProposalController.cs",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAgwMMAAAAAAAAA",
+              "ViewState": "AQIAAKcAAAAAAAAAAAAUwIcAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:09:10.913Z"
+              "WhenOpened": "2024-07-11T13:35:02.118Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\AppDbContext.cs",
-              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\AppDbContext.cs",
-              "RelativeToolTip": "WebApplication1\\AppDbContext.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwA8AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:08:25.977Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "ProposalEntity.cs",
               "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\ProposalEntity.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Model\\ProposalEntity.cs",
               "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\ProposalEntity.cs",
               "RelativeToolTip": "WebApplication1\\Model\\ProposalEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAnAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:07:36.252Z"
+              "WhenOpened": "2024-07-11T13:34:14.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "ProposalService.cs",
               "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\Probosal\\ProposalService.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Service\\Probosal\\ProposalService.cs",
               "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\Probosal\\ProposalService.cs",
               "RelativeToolTip": "WebApplication1\\Service\\Probosal\\ProposalService.cs",
-              "ViewState": "AQIAALEAAAAAAAAAAAAUwLUAAABkAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAewDIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T11:03:49.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T13:34:01.033Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
+              "Title": "ProposalResource.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Resorces\\ProposalResource.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Resorces\\ProposalResource.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Resorces\\ProposalResource.cs",
+              "RelativeToolTip": "WebApplication1\\Resorces\\ProposalResource.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T13:33:48.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Proposal.cs",
               "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Proposal.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Table\\Proposal.cs",
               "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Proposal.cs",
               "RelativeToolTip": "WebApplication1\\Table\\Proposal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAZAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAYwBIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T10:42:48.21Z"
+              "WhenOpened": "2024-07-11T13:33:12.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\Student\\StudentService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Service\\Student\\StudentService.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\Student\\StudentService.cs",
+              "RelativeToolTip": "WebApplication1\\Service\\Student\\StudentService.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAcwDgAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:58:41.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StaffMemberService.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "RelativeToolTip": "WebApplication1\\Service\\StaffMembers\\StaffMemberService.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAcwC8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:58:33.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TeacherEntitycs.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\TeacherEntitycs.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Model\\TeacherEntitycs.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\TeacherEntitycs.cs",
+              "RelativeToolTip": "WebApplication1\\Model\\TeacherEntitycs.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:58:21.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "studentEntity.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\studentEntity.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Model\\studentEntity.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\studentEntity.cs",
+              "RelativeToolTip": "WebApplication1\\Model\\studentEntity.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:58:09.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\NewsController.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\NewsController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAgwDYAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:52:44.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\StudentController.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:52:32.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "concilMemberService.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\concilMember\\concilMemberService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Service\\concilMember\\concilMemberService.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Service\\concilMember\\concilMemberService.cs",
+              "RelativeToolTip": "WebApplication1\\Service\\concilMember\\concilMemberService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAACYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:52:09.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "concilMemberEntity.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\concilMemberEntity.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Model\\concilMemberEntity.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Model\\concilMemberEntity.cs",
+              "RelativeToolTip": "WebApplication1\\Model\\concilMemberEntity.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:52:01.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Teacher.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Table\\Teacher.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Teacher.cs",
+              "RelativeToolTip": "WebApplication1\\Table\\Teacher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:48:13.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "studentConcilMember.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\studentConcilMember.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Table\\studentConcilMember.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\studentConcilMember.cs",
+              "RelativeToolTip": "WebApplication1\\Table\\studentConcilMember.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAwwCIAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:48:12.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Student.cs",
+              "DocumentMoniker": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Student.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Table\\Student.cs",
+              "ToolTip": "D:\\project_node_js\\Final-Project\\WebApplication1\\Table\\Student.cs",
+              "RelativeToolTip": "WebApplication1\\Table\\Student.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T13:48:09.941Z"
             }
           ]
         }

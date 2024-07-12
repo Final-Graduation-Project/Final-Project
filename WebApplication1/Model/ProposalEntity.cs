@@ -11,5 +11,7 @@
         public int UserID { get; set; }
         public string OptionText { get; set; }
         public string CommentText { get; set; }
+        public string name { get; set; }
+
     }
 }

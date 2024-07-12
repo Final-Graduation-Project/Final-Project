@@ -93,6 +93,10 @@ namespace WebApplication1.Migrations
                     b.Property<int>("Votes")
                         .HasColumnType("int");
 
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ProposalID");
 
                     b.ToTable("Proposals");

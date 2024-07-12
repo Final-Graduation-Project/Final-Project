@@ -22,6 +22,7 @@ namespace WebApplication1.Model
         public DateTime LastSeen { get; set; } // New property
 
 
+
     }
 }
 

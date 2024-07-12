@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uNT43ZuAtIEHmQNrtgml2ozJu3lM6B368fUsxRJQcCM=",
+  "Hash": "2lhiHkpzK1GCR6WEzcd71BbIiFAqXeS5H41ADnPu0m0=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "WebApplication1\\wwwroot",
       "Source": "WebApplication1",
-      "ContentRoot": "C:\\Users\\twitter\\OneDrive\\Documents\\GitHub\\Final-Project\\WebApplication1\\wwwroot\\",
+      "ContentRoot": "D:\\project_node_js\\Final-Project\\WebApplication1\\wwwroot\\",
       "BasePath": "_content/WebApplication1",
       "Pattern": "**"
     }

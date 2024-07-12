@@ -18,5 +18,6 @@ namespace WebApplication1.Models
         public string universityMajor { get; set; }
         public DateTime LastSeen { get; set; } // New property
 
+
     }
 }

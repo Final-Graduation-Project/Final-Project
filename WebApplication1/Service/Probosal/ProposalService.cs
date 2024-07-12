@@ -47,7 +47,8 @@ namespace WebApplication1.Service.Probosal
                 UserID = m.UserID,
                 OptionText = m.OptionText,
                 CommentText = m.CommentText,
-                VotedUsers = ""
+                VotedUsers = "",
+                name=m.name
             };
 
             _context.Proposals.Add(proposal);
